@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1e3a8a">
+    <meta name="description" content="Guia completo sobre Direito Civil - Conceitos, Obrigações, Contratos e Família">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Direito Civil – Guia Completo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta Azul para Direito Civil */
+            --primary: #1e3a8a;       /* Azul Escuro */
+            --primary-light: #3b82f6; /* Azul Vibrante */
+            --primary-dark: #172554;  /* Azul Quase Preto */
+            --secondary: #7c3aed;     /* Roxo para destaque */
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --bg-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --spacing: 0.25rem;
+            --radius: 8px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* ========== TIPOGRAFIA MELHORADA ========== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-dark);
+        }
+
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            margin-bottom: calc(var(--spacing) * 6);
+        }
+
+        h2 {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            margin: calc(var(--spacing) * 8) 0 calc(var(--spacing) * 4);
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+            padding-left: calc(var(--spacing) * 4);
+            transition: var(--transition);
+        }
+
+        h2:hover {
+            border-left-color: var(--primary-light);
+            padding-left: calc(var(--spacing) * 5);
+        }
+
+        h3 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin: calc(var(--spacing) * 6) 0 calc(var(--spacing) * 3);
+            color: var(--secondary);
+        }
+
+        p {
+            margin-bottom: calc(var(--spacing) * 4);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ========== CONTAINER OTIMIZADO ========== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: calc(var(--spacing) * 4);
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: calc(var(--spacing) * 3);
+            }
+        }
+
+        /* ========== HEADER COM GRADIENTE ANIMADO ========== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: calc(var(--spacing) * 8) calc(var(--spacing) * 4);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            color: white;
+            margin-bottom: calc(var(--spacing) * 2);
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .header p {
+            opacity: 0.95;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin-bottom: 0;
+            animation: fadeInUp 0.6s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== NAVEGAÇÃO APRIMORADA ========== */
+        .nav-tabs {
+            display: flex;
+            gap: calc(var(--spacing) * 2);
+            margin: calc(var(--spacing) * 6) 0;
+            border-bottom: 2px solid var(--border);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--bg-light);
+            padding-bottom: 4px;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .nav-tabs::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        .nav-tabs::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .nav-tab {
+            padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: var(--transition);
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .nav-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-tab:hover {
+            color: var(--primary);
+        }
+
+        .nav-tab:hover::after {
+            width: 100%;
+        }
+
+        .nav-tab.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-tab.active::after {
+            width: 100%;
+        }
+
+        .nav-tab:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* ========== SEÇÕES COM ANIMAÇÃO ========== */
+        .section {
+            background: white;
+            border-radius: var(--radius);
+            padding: calc(var(--spacing) * 6);
+            margin-bottom: calc(var(--spacing) * 6);
+            box-shadow: var(--shadow-sm);
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: calc(var(--spacing) * 4);
+            }
+        }
+
+        /* ========== BOXES MELHORADOS ========== */
+        .box {
+            padding: calc(var(--spacing) * 4);
+            margin: calc(var(--spacing) * 4) 0;
+            border-left: 4px solid;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            transition: var(--transition);
+        }
+
+        .box:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .box-definition {
+            border-left-color: var(--primary);
+            background: linear-gradient(to right, rgba(30, 58, 138, 0.05), rgba(30, 58, 138, 0.02));
+        }
+
+        .box-example {
+            border-left-color: var(--success);
+            background: linear-gradient(to right, rgba(5, 150, 105, 0.05), rgba(5, 150, 105, 0.02));
+        }
+
+        .box-warning {
+            border-left-color: var(--warning);
+            background: linear-gradient(to right, rgba(217, 119, 6, 0.05), rgba(217, 119, 6, 0.02));
+        }
+
+        .box-important {
+            border-left-color: var(--danger);
+            background: linear-gradient(to right, rgba(220, 38, 38, 0.05), rgba(220, 38, 38, 0.02));
+        }
+
+        .box strong {
+            display: block;
+            margin-bottom: calc(var(--spacing) * 2);
+            font-size: 1rem;
+        }
+
+        /* ========== LISTAS ESTILIZADAS ========== */
+        ul, ol {
+            margin: calc(var(--spacing) * 4) 0;
+            padding-left: calc(var(--spacing) * 8);
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: calc(var(--spacing) * 2);
+            transition: var(--transition);
+        }
+
+        li:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        ul li::marker {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        ol li::marker {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* ========== TABELAS RESPONSIVAS ========== */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: calc(var(--spacing) * 4) 0;
+            border-radius: 4px;
+            box-shadow: var(--shadow-md);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: calc(var(--spacing) * 3);
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            padding: calc(var(--spacing) * 3);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        tbody tr {
+            transition: var(--transition);
+        }
+
+        tbody tr:hover {
+            background-color: rgba(30, 58, 138, 0.05);
+            transform: scale(1.01);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ========== CARDS INTERATIVOS ========== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: calc(var(--spacing) * 4);
+            margin: calc(var(--spacing) * 4) 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: calc(var(--spacing) * 4);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: calc(var(--spacing) * 2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: calc(var(--spacing) * 2);
+            color: var(--primary);
+        }
+
+        .card-content {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        /* ========== SCROLL TO TOP BUTTON ========== */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--primary-light);
+            transform: translateY(-4px);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: calc(var(--spacing) * 6) calc(var(--spacing) * 4);
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: calc(var(--spacing) * 8);
+        }
+
+        .footer p {
+            margin-bottom: calc(var(--spacing) * 2);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ========== IMPRESSÃO ========== */
+        @media print {
+            body { background: white; }
+            .section { box-shadow: none; page-break-inside: avoid; }
+            h2 { page-break-after: avoid; }
+            .nav-tabs, .scroll-top { display: none; }
+        }
+
+        /* ========== ACESSIBILIDADE ========== */
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <h1><i class="fas fa-gavel" aria-hidden="true"></i> Direito Civil</h1>
+        <p>Guia Completo com Conceitos Fundamentais e Aplicações Práticas</p>
+    </header>
+
+    <nav class="nav-tabs" role="navigation" aria-label="Navegação principal">
+        <button class="nav-tab active" data-section="conceitos" aria-label="Ir para Conceitos">Conceitos</button>
+        <button class="nav-tab" data-section="obrigacoes" aria-label="Ir para Obrigações">Obrigações</button>
+        <button class="nav-tab" data-section="contratos" aria-label="Ir para Contratos">Contratos</button>
+        <button class="nav-tab" data-section="responsabilidade" aria-label="Ir para Responsabilidade">Responsabilidade</button>
+        <button class="nav-tab" data-section="familia" aria-label="Ir para Família">Família</button>
+        <button class="nav-tab" data-section="propriedade" aria-label="Ir para Propriedade">Propriedade</button>
+    </nav>
+
+    <main class="container" role="main">
+        <section id="conceitos" class="section" aria-labelledby="intro-title">
+            <h2 id="intro-title"><i class="fas fa-book" aria-hidden="true"></i> Conceitos Fundamentais do Direito Civil</h2>
+            
+            <p>O Direito Civil é o ramo do direito privado que regula as relações pessoais e patrimoniais entre pessoas físicas e jurídicas, estabelecendo direitos e deveres civis fundamentais para a convivência em sociedade.</p>
+
+            <div class="box box-definition">
+                <strong><i class="fas fa-lightbulb" aria-hidden="true"></i> O que é Direito Civil?</strong>
+                Conjunto de normas jurídicas que disciplina as relações privadas entre pessoas, abrangendo temas como capacidade civil, direitos reais, contratos, responsabilidade civil e direito de família.
+            </div>
+
+            <h3>Classificações e Ramos</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+                    <div class="card-title">Direito de Família</div>
+                    <div class="card-content">Regula relações entre cônjuges, filhos, parentescos e sucessão hereditária.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-house" aria-hidden="true"></i></div>
+                    <div class="card-title">Direito das Coisas</div>
+                    <div class="card-content">Trata da propriedade, posse e outros direitos reais sobre bens móveis e imóveis.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
+                    <div class="card-title">Direito das Obrigações</div>
+                    <div class="card-content">Regula relações jurídicas entre pessoas, contratos e responsabilidade civil.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-scroll" aria-hidden="true"></i></div>
+                    <div class="card-title">Direito das Sucessões</div>
+                    <div class="card-content">Disciplina transmissão de bens e direitos após a morte de uma pessoa.</div>
+                </div>
+            </div>
+
+            <h3>Princípios Fundamentais</h3>
+            <ul>
+                <li><strong>Igualdade:</strong> Todos têm direitos e deveres iguais perante a lei</li>
+                <li><strong>Autonomia da Vontade:</strong> Liberdade para contratar e dispor de seus bens</li>
+                <li><strong>Boa-Fé:</strong> Obrigação de agir com honestidade em relações jurídicas</li>
+                <li><strong>Função Social:</strong> Propriedade e contratos devem servir à coletividade</li>
+            </ul>
+        </section>
+
+        <section id="obrigacoes" class="section" style="display: none;" aria-labelledby="obrigacoes-title">
+            <h2 id="obrigacoes-title"><i class="fas fa-link" aria-hidden="true"></i> Direito das Obrigações</h2>
+            
+            <p>As obrigações jurídicas representam vínculos entre pessoas que constituem em dar, fazer ou não fazer algo de interesse do credor, como contrapartida de uma prestação já realizada ou esperada.</p>
+
+            <div class="box box-definition">
+                <strong>Conceito de Obrigação Jurídica</strong>
+                É a relação jurídica pela qual uma pessoa (devedor) fica vinculada a outra (credor) para cumprir uma prestação (dar, fazer ou não fazer), sob pena de responsabilidade civil.
+            </div>
+
+            <h3>Classificações das Obrigações</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Características</th>
+                            <th>Exemplos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>De Dar</strong></td>
+                            <td>Transferência de propriedade ou posse</td>
+                            <td>Venda, doação, herança</td>
+                        </tr>
+                        <tr>
+                            <td><strong>De Fazer</strong></td>
+                            <td>Realização de um ato ou serviço</td>
+                            <td>Prestação de serviços, obra</td>
+                        </tr>
+                        <tr>
+                            <td><strong>De Não Fazer</strong></td>
+                            <td>Abstenção de determinado ato</td>
+                            <td>Sigilo profissional, não concorrência</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Garantias das Obrigações</h3>
+            <ul>
+                <li><strong>Pessoal:</strong> Todo patrimônio do devedor responde pela obrigação</li>
+                <li><strong>Real:</strong> Garantia sobre coisa específica (hipoteca, penhor)</li>
+                <li><strong>Fidejussória:</strong> Terceiro garante o cumprimento (fiança, aval)</li>
+            </ul>
+
+            <div class="box box-warning">
+                <strong><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Atenção</strong>
+                O descumprimento de obrigação enseja responsabilidade civil, podendo resultar em indenização por perdas e danos.
+            </div>
+        </section>
+
+        <section id="contratos" class="section" style="display: none;" aria-labelledby="contratos-title">
+            <h2 id="contratos-title"><i class="fas fa-file-contract" aria-hidden="true"></i> Teoria Geral dos Contratos</h2>
+            
+            <p>Contrato é acordo de duas ou mais vontades, celebrado para criar, modificar ou extinguir direitos e obrigações de conteúdo patrimonial, conforme regime legal aplicável.</p>
+
+            <div class="box box-example">
+                <strong><i class="fas fa-check-circle" aria-hidden="true"></i> Requisitos Essenciais</strong>
+                <ul>
+                    <li>Consentimento das partes (sem vícios)</li>
+                    <li>Agentes capazes legalmente</li>
+                    <li>Objeto lícito e determinado</li>
+                    <li>Forma prescrita em lei</li>
+                </ul>
+            </div>
+
+            <h3>Princípios Contratuais</h3>
+            <ol>
+                <li><strong>Autonomia da Vontade:</strong> Liberdade para contratar e definir termos</li>
+                <li><strong>Força Vinculativa:</strong> Contrato válido obriga as partes</li>
+                <li><strong>Boa-Fé Objetiva:</strong> Execução conforme padrão de honestidade</li>
+                <li><strong>Função Social:</strong> Contrato não deve prejudicar interesses coletivos</li>
+            </ol>
+
+            <h3>Tipos de Contratos</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-handshake-simple" aria-hidden="true"></i></div>
+                    <div class="card-title">Contrato Bilateral</div>
+                    <div class="card-content">Ambas as partes têm direitos e obrigações recíprocas.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-arrow-right" aria-hidden="true"></i></div>
+                    <div class="card-title">Contrato Unilateral</div>
+                    <div class="card-content">Apenas uma parte assume obrigação perante a outra.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-sack-dollar" aria-hidden="true"></i></div>
+                    <div class="card-title">Contrato Oneroso</div>
+                    <div class="card-content">Cada parte aufere ganho e assume encargo.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-gift" aria-hidden="true"></i></div>
+                    <div class="card-title">Contrato Gratuito</div>
+                    <div class="card-content">Uma parte aufere vantagem sem contrapartida.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="responsabilidade" class="section" style="display: none;" aria-labelledby="resp-title">
+            <h2 id="resp-title"><i class="fas fa-balance-scale" aria-hidden="true"></i> Responsabilidade Civil</h2>
+            
+            <p>A responsabilidade civil obriga a pessoa que causa dano injusto a outrem a reparar os prejuízos material e moral causados, independentemente de culpa em caso de responsabilidade objetiva.</p>
+
+            <h3>Elementos da Responsabilidade Civil</h3>
+            <div class="box box-definition">
+                <strong>Requisitos Legais:</strong>
+                <ol>
+                    <li><strong>Conduta (ação ou omissão):</strong> Comportamento voluntário da pessoa</li>
+                    <li><strong>Dano:</strong> Prejuízo material ou moral causado</li>
+                    <li><strong>Causalidade:</strong> Nexo causal entre conduta e dano</li>
+                    <li><strong>Culpa:</strong> Negligência, imperícia ou imprudência (na responsabilidade subjetiva)</li>
+                </ol>
+            </div>
+
+            <h3>Espécies de Responsabilidade</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Espécie</th>
+                            <th>Conceito</th>
+                            <th>Exigência de Culpa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Subjetiva</strong></td>
+                            <td>Baseada na culpa do agente</td>
+                            <td>Sim (negligência, imperícia, imprudência)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Objetiva</strong></td>
+                            <td>Baseada no risco criado</td>
+                            <td>Não (basta conduta + dano + nexo)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-important">
+                <strong><i class="fas fa-fire" aria-hidden="true"></i> Conceitos Importantes</strong>
+                <ul>
+                    <li><strong>Negligência:</strong> Falta de cuidado ordinário; omissão de diligência esperada</li>
+                    <li><strong>Imperícia:</strong> Falta de habilidade técnica ou conhecimento para exercer atividade</li>
+                    <li><strong>Imprudência:</strong> Falta de cautela; comportamento precipitado e temerário</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="familia" class="section" style="display: none;" aria-labelledby="familia-title">
+            <h2 id="familia-title"><i class="fas fa-heart" aria-hidden="true"></i> Direito de Família</h2>
+            
+            <p>O Direito de Família regula as relações jurídicas decorrentes do casamento, convivência, parentesco e filiação, bem como a proteção de menores e incapazes.</p>
+
+            <h3>Conceitos Fundamentais</h3>
+            <ul>
+                <li><strong>Casamento:</strong> Contrato bilateral solene que estabelece sociedade conjugal</li>
+                <li><strong>Filiação:</strong> Relação de parentesco entre pais e filhos</li>
+                <li><strong>Parentesco:</strong> Vínculo de sangue entre pessoas ou por afinidade</li>
+                <li><strong>Guardião:</strong> Pessoa que exerce poder familiar sobre menor</li>
+            </ul>
+
+            <h3>Tipos de Filiação</h3>
+            <div class="box box-definition">
+                <strong>Classificações Legais:</strong>
+                <ul>
+                    <li><strong>Legítima:</strong> Filhos de pais casados</li>
+                    <li><strong>Ilegítima:</strong> Filhos de pais não casados entre si</li>
+                    <li><strong>Adotiva:</strong> Filhos por meio de processo formal de adoção</li>
+                </ul>
+            </div>
+
+            <div class="box box-example">
+                <strong><i class="fas fa-gavel" aria-hidden="true"></i> Inovação Legislativa</strong>
+                A Constituição de 1988 e o Código Civil de 2002 reconhecem igualdade total entre filhos legítimos, ilegítimos e adotivos, vedando qualquer discriminação.
+            </div>
+        </section>
+
+        <section id="propriedade" class="section" style="display: none;" aria-labelledby="prop-title">
+            <h2 id="prop-title"><i class="fas fa-key" aria-hidden="true"></i> Direito de Propriedade e Direitos Reais</h2>
+            
+            <p>A propriedade é o direito real mais completo, conferindo ao proprietário poder de usar, usufruir, dispor e reivindicar o bem de forma exclusiva e perpétua.</p>
+
+            <div class="box box-definition">
+                <strong>Propriedade Privada</strong>
+                Direito fundamental reconhecido na Constituição Federal, exercido dentro dos limites legais e com observância da função social, permitindo ao proprietário: usar, fruir, dispor e reivindicar.
+            </div>
+
+            <h3>Características da Propriedade</h3>
+            <ul>
+                <li><strong>Exclusividade:</strong> Apenas o proprietário pode exercer direitos sobre coisa</li>
+                <li><strong>Perpetuidade:</strong> Perdura enquanto não transferida ou extinta</li>
+                <li><strong>Elasticidade:</strong> Recupera direitos quando cessam gravames</li>
+                <li><strong>Plenitude:</strong> Faculdade de usar, fruir, dispor e reivindicar</li>
+            </ul>
+
+            <h3>Modalidades de Propriedade</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-crown" aria-hidden="true"></i></div>
+                    <div class="card-title">Propriedade Plena</div>
+                    <div class="card-content">Proprietário tem plenitude de direitos sobre a coisa, sem restrições.</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-ban" aria-hidden="true"></i></div>
+                    <div class="card-title">Propriedade Limitada</div>
+                    <div class="card-content">Encargos reduzem o exercício de direitos (uso, habitação).</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-hourglass-half" aria-hidden="true"></i></div>
+                    <div class="card-title">Propriedade Resolúvel</div>
+                    <div class="card-content">Pode ser extinta por evento futuro incerto (condição resolutiva).</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-file-signature" aria-hidden="true"></i></div>
+                    <div class="card-title">Propriedade Fiduciária</div>
+                    <div class="card-content">Propriedade sob garantia em alienação fiduciária.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button class="scroll-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <footer class="footer" role="contentinfo">
+        <p><strong>Direito Civil – Guia Completo</strong></p>
+        <p>Material educacional para estudos jurídicos. Última atualização: 2024</p>
+        <p>&copy; 2024 Estudos de Direito. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Classe para gerenciar navegação
+        class NavigationManager {
+            constructor() {
+                this.tabs = document.querySelectorAll('.nav-tab');
+                this.sections = document.querySelectorAll('.section');
+                this.scrollTopBtn = document.querySelector('.scroll-top');
+                this.init();
+            }
+
+            init() {
+                this.setupTabNavigation();
+                this.setupScrollToTop();
+                this.setupKeyboardNavigation();
+            }
+
+            setupTabNavigation() {
+                this.tabs.forEach(tab => {
+                    tab.addEventListener('click', (e) => this.handleTabClick(e));
+                });
+            }
+
+            handleTabClick(e) {
+                const sectionId = e.currentTarget.dataset.section;
+                
+                // Remove active de todas as abas
+                this.tabs.forEach(t => t.classList.remove('active'));
+                this.sections.forEach(s => s.style.display = 'none');
+                
+                // Ativa aba selecionada
+                e.currentTarget.classList.add('active');
+                const targetSection = document.getElementById(sectionId);
+                targetSection.style.display = 'block';
+                
+                // Scroll suave para seção
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Atualiza histórico do navegador
+                history.pushState(null, '', `#${sectionId}`);
+            }
+
+            setupScrollToTop() {
+                // Mostra/esconde botão ao rolar
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        this.scrollTopBtn.classList.add('visible');
+                    } else {
+                        this.scrollTopBtn.classList.remove('visible');
+                    }
+                });
+
+                // Ação do botão
+                this.scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            setupKeyboardNavigation() {
+                this.tabs.forEach((tab, index) => {
+                    tab.addEventListener('keydown', (e) => {
+                        let targetIndex;
+                        
+                        switch(e.key) {
+                            case 'ArrowRight':
+                                targetIndex = (index + 1) % this.tabs.length;
+                                break;
+                            case 'ArrowLeft':
+                                targetIndex = (index - 1 + this.tabs.length) % this.tabs.length;
+                                break;
+                            default:
+                                return;
+                        }
+                        
+                        e.preventDefault();
+                        this.tabs[targetIndex].focus();
+                        this.tabs[targetIndex].click();
+                    });
+                });
+            }
+        }
+
+        // Inicializa quando DOM estiver pronto
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                new NavigationManager();
+            });
+        } else {
+            new NavigationManager();
+        }
+
+        // Restaura seção do hash da URL ao carregar
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const tab = document.querySelector(`[data-section="${hash}"]`);
+                if (tab) tab.click();
+            }
+        });
+    </script>
+</body>
+</html>
