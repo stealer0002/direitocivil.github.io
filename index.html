@@ -3,670 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bens, Negócios e Contratos | UMC 2025</title>
+    <title>Civil II: Bens e Contratos | UMC</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            /* Paleta de Cores Institucional (Direito UMC) */
-            --primary: #002D62;       /* Azul Marinho Profundo */
-            --primary-light: #004B8D; /* Azul Real */
-            --accent: #C5A065;        /* Dourado Nobre */
-            --text-main: #2C3E50;     /* Cinza Escuro */
-            --text-light: #7F8C8D;    /* Cinza Claro */
-            --bg-body: #F4F6F7;       /* Fundo Off-White */
-            --card-bg: #FFFFFF;       /* Fundo Branco */
-            
-            /* Cores Semânticas (Tags) */
-            --tag-m1: #C0392B; /* Vermelho (Matéria M1) */
-            --tag-m2: #27AE60; /* Verde (Matéria M2) */
-            --tag-law: #F39C12; /* Amarelo (Legislação) */
-            --tag-new: #8E44AD; /* Roxo (Novidades/Reforma) */
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 60px; /* Espaço para o rodapé não cobrir conteúdo */
-        }
-
-        /* --- CABEÇALHO (HEADER) --- */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 3rem 1.5rem;
-            text-align: center;
-            border-bottom: 6px solid var(--accent);
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            font-weight: 300;
-            font-style: italic;
-        }
-
-        .header-badges {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.85rem;
-            flex-wrap: wrap;
-        }
-
-        .h-badge {
-            background: rgba(255,255,255,0.15);
-            padding: 5px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.3);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* --- NAVEGAÇÃO (TABS) --- */
-        .nav-wrapper {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: var(--primary);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            overflow-x: auto;
-            white-space: nowrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-tabs::-webkit-scrollbar { height: 0px; background: transparent; } /* Esconde barra rolagem */
-
-        .tab-btn {
-            background: transparent;
-            border: none;
-            color: rgba(255,255,255,0.7);
-            padding: 16px 24px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-bottom: 4px solid transparent;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .tab-btn:hover { color: white; background: rgba(255,255,255,0.1); }
-        .tab-btn.active { 
-            color: var(--accent); 
-            border-bottom-color: var(--accent); 
-            background: rgba(0,0,0,0.2); 
-        }
-
-        /* --- CONTAINER PRINCIPAL --- */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            color: var(--primary);
-            border-left: 6px solid var(--accent);
-            padding-left: 15px;
-            margin-bottom: 30px;
-            font-size: 1.6rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .legend { font-size: 0.8rem; color: #666; font-weight: normal; }
-        .dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; }
-
-        /* Animação de entrada das seções */
-        .content-section { display: none; animation: slideUp 0.5s ease-out; }
-        .content-section.active { display: block; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- LISTA DE CARDS (Vertical) --- */
-        .card-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-            overflow: hidden;
-            transition: box-shadow 0.3s, transform 0.2s;
-            position: relative;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            transform: translateY(-2px);
-        }
-
-        /* Bordas Coloridas Laterais */
-        .card.m1 { border-left: 6px solid var(--tag-m1); }
-        .card.m2 { border-left: 6px solid var(--tag-m2); }
-        .card.reforma { border-left: 6px solid var(--tag-new); }
-
-        /* Cabeçalho do Card (Clicável) */
-        .card-header {
-            padding: 20px;
-            cursor: pointer;
-            background: white;
-            position: relative;
-            z-index: 2;
-        }
-
-        .card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        
-        .aula-tag {
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .bg-m1 { background: rgba(192, 57, 43, 0.1); color: var(--tag-m1); }
-        .bg-m2 { background: rgba(39, 174, 96, 0.1); color: var(--tag-m2); }
-        .bg-new { background: rgba(142, 68, 173, 0.1); color: var(--tag-new); }
-
-        .card h3 {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .card-summary {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Botão Expansão */
-        .expand-btn {
-            margin-top: 12px;
-            background: none;
-            border: none;
-            color: var(--primary-light);
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .expand-icon { transition: transform 0.3s ease; }
-
-        /* Área de Detalhes (Conteúdo Oculto) */
-        .card-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            background: #FAFAFA;
-            border-top: 1px solid #eee;
-        }
-        
-        .details-padding { padding: 25px; }
-
-        /* Boxes de Conteúdo Interno */
-        .box { padding: 15px; border-radius: 6px; margin: 15px 0; font-size: 0.92rem; border-left-width: 4px; border-left-style: solid; }
-        
-        .box-law { 
-            background: #FFF8E1; 
-            border-color: var(--tag-law); 
-            color: #5D4037; 
-        }
-        .box-law strong { color: #E67E22; }
-
-        .box-doctrine { 
-            background: #E8F8F5; 
-            border-color: #1ABC9C; 
-            color: #0E6251; 
-        }
-
-        .box-concept {
-            background: #EBF5FB;
-            border-color: var(--primary-light);
-            color: #21618C;
-        }
-
-        .box-alert { 
-            background: #FDEDEC; 
-            border-color: var(--tag-m1); 
-            color: #922B21; 
-            font-weight: 500;
-        }
-
-        ul { margin-left: 20px; margin-bottom: 10px; }
-        li { margin-bottom: 5px; }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--primary);
-            color: white;
-            padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 5px solid var(--accent);
-        }
-
-        .footer-content { max-width: 800px; margin: 0 auto; text-align: left; }
-        
-        .biblio-list { list-style: none; font-size: 0.9rem; color: rgba(255,255,255,0.9); }
-        .biblio-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
-        .biblio-list li::before { content: '\f02d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; top: 3px; }
-
-        .copyright { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.7; }
-
-        /* --- BOTÃO VOLTAR AO TOPO --- */
-        #backToTop {
-            display: none;
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 99;
-            border: none;
-            background-color: var(--accent);
-            color: white;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 50%;
-            font-size: 18px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: all 0.3s;
-        }
-        #backToTop:hover { background-color: var(--primary-light); transform: translateY(-3px); }
-
-        /* Responsividade Mobile */
-        @media (max-width: 768px) {
-            h1 { font-size: 1.6rem; }
-            .nav-tabs { justify-content: flex-start; padding-left: 10px; }
-            .section-title { font-size: 1.3rem; flex-direction: column; align-items: flex-start; gap: 5px; }
-            .container { margin: 20px auto; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Bens, Negócios e Contratos</h1>
-        <div class="subtitle">Universidade de Mogi das Cruzes - Direito Civil 2º Sem/2025</div>
+        <div class="header-content">
+            <h1>Direito Civil II</h1>
+            <p class="subtitle">Bens, Negócios e Contratos | UMC 2025</p>
+            <div class="badges">
+                <span class="badge"><i class="fas fa-check-double"></i> Ementa Completa</span>
+                <span class="badge"><i class="fas fa-list-ol"></i> Aulas 1 a 20</span>
+            </div>
         </div>
     </header>
 
     <div class="nav-wrapper">
-        <ul class="nav-tabs">
-            <li><button class="tab-btn active" onclick="openTab('m1-pessoas')">1. Pessoas & Bens</button></li>
-            <li><button class="tab-btn" onclick="openTab('m1-obrigacoes')">2. Obrigações</button></li>
-            <li><button class="tab-btn" onclick="openTab('m2-contratos')">3. Teoria Contratos</button></li>
-            <li><button class="tab-btn" onclick="openTab('m2-extincao')">4. Crise & Extinção</button></li>
-            <li><button class="tab-btn" onclick="openTab('avaliacoes')">📅 Avaliações</button></li>
-        </ul>
+        <div class="nav-container">
+            <button class="tab-btn active" onclick="openTab('mod1')">Mód 1: Pessoas & Bens</button>
+            <button class="tab-btn" onclick="openTab('mod2')">Mód 2: Obrigações</button>
+            <button class="tab-btn" onclick="openTab('mod3')">Mód 3: Contratos</button>
+            <button class="tab-btn" onclick="openTab('mod4')">Mód 4: Extinção</button>
+        </div>
     </div>
 
-    <div class="container">
+    <main class="container">
 
-        <section id="m1-pessoas" class="content-section active">
-            <div class="section-title">
-                <span>Parte Geral: Pessoas e Bens</span>
-                <span class="legend"><span class="dot" style="background:var(--tag-m1)"></span>Conteúdo M1</span>
+        <section id="mod1" class="content-section active">
+            <div class="section-header">
+                <h2>Parte Geral: Sujeitos e Bens</h2>
+                <p>Aulas 1A a 9 (Conteúdo da M1)</p>
             </div>
-            
-            <div class="card-list">
-                <div class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m1">Aula 1A</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Personalidade Jurídica</h3>
-                        <p class="card-summary">Teorias sobre o início da personalidade e os direitos do Nascituro.</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
-                    </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-law"><strong>Art. 2º CC:</strong> "A personalidade civil da pessoa começa do nascimento com vida; mas a lei põe a salvo, desde a concepção, os direitos do nascituro."</div>
-                        <div class="box box-doctrine">
-                            <strong>Divergência Doutrinária:</strong><br>
-                            1. <em>Natalista (Clássica):</em> Nascituro tem mera expectativa de direito.<br>
-                            2. <em>Concepcionista (Moderna/Tartuce):</em> Nascituro já tem personalidade formal (direitos da personalidade). Posição adotada pelo STJ (Danos morais, alimentos).
-                        </div>
-                    </div></div>
-                </div>
 
-                <div class="card m1">
+            <div class="card-list">
+                <article class="card m1">
                     <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m1">Aula 2/3A</span><i class="fas fa-chevron-down expand-icon"></i></div>
+                        <div class="card-top"><span class="tag">Aula 1</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Personalidade e Nascituro</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p><strong>Personalidade Jurídica:</strong> É a "roupa" que o ser humano veste ao nascer com vida, dando-lhe aptidão para ter direitos e deveres.</p>
+                            <div class="box law">
+                                <strong>Art. 2º CC:</strong> "A lei põe a salvo, desde a concepção, os direitos do nascituro."
+                            </div>
+                            <p><strong>Teorias sobre o Nascituro (Feto):</strong></p>
+                            <ul>
+                                <li><strong>Natalista:</strong> Só tem expectativa de direito. Se não nascer vivo, nunca foi pessoa.</li>
+                                <li><strong>Concepcionista (Adotada pelo STJ):</strong> Já é pessoa desde a concepção para direitos da personalidade (vida, imagem, pré-natal).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card m1">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 2/3</span><i class="fas fa-chevron-down icon"></i></div>
                         <h3>Capacidade e Incapacidade</h3>
-                        <p class="card-summary">Impacto do Estatuto da Pessoa com Deficiência (Lei 13.146/15).</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
                     </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-alert"><strong>Atenção:</strong> A deficiência mental NÃO gera mais incapacidade absoluta por si só.</div>
-                        <p><strong>Art. 3º (Absolutamente Incapazes):</strong> Apenas os menores de 16 anos.</p>
-                        <p><strong>Art. 4º (Relativamente Incapazes):</strong> 16-18 anos, ébrios habituais, viciados em tóxicos, pródigos.</p>
-                    </div></div>
-                </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <div class="box alert">
+                                <strong>Mudança da Lei 13.146/15:</strong> A deficiência não gera mais incapacidade absoluta.
+                            </div>
+                            <ul>
+                                <li><strong>Absolutamente Incapazes (Art. 3):</strong> Apenas menores de 16 anos. Ato é NULO.</li>
+                                <li><strong>Relativamente Incapazes (Art. 4):</strong> 16-18, ébrios, toxicômanos, pródigos. Ato é ANULÁVEL.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
 
-                <div class="card m1">
+                <article class="card m1">
                     <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m1">Aula 4A</span><i class="fas fa-chevron-down expand-icon"></i></div>
+                        <div class="card-top"><span class="tag">Aula 4</span><i class="fas fa-chevron-down icon"></i></div>
                         <h3>Direitos da Personalidade</h3>
-                        <p class="card-summary">Características e proteção à integridade (Art. 11 a 21 CC).</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
                     </div>
-                    <div class="card-details"><div class="details-padding">
-                        <p>São intransmissíveis e irrenunciáveis. Protegem:</p>
-                        <ul>
-                            <li><strong>Integridade Física:</strong> Corpo vivo ou morto (transplantes).</li>
-                            <li><strong>Integridade Psíquica:</strong> Liberdade, privacidade.</li>
-                            <li><strong>Integridade Moral:</strong> Honra, imagem, nome.</li>
-                        </ul>
-                    </div></div>
-                </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p>São direitos irrenunciáveis e intransmissíveis.</p>
+                            <ul>
+                                <li><strong>Corpo:</strong> Proteção à integridade física. Transplante apenas gratuito.</li>
+                                <li><strong>Imagem/Honra:</strong> Proteção moral. Súmula 403 STJ: Uso não autorizado de imagem gera dano moral automático.</li>
+                                <li><strong>Nome:</strong> Direito ao prenome e sobrenome.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
 
-                <div class="card m1">
+                <article class="card m1">
                     <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m1">Aula 5A</span><i class="fas fa-chevron-down expand-icon"></i></div>
+                        <div class="card-top"><span class="tag">Aula 5</span><i class="fas fa-chevron-down icon"></i></div>
                         <h3>Domicílio e Ausência</h3>
-                        <p class="card-summary">Conceito de domicílio e o processo de sucessão de ausentes.</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
                     </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-concept">
-                            <strong>Ausência (Fases):</strong><br>
-                            1. Curadoria dos bens (Arrecadação);<br>
-                            2. Sucessão Provisória (após 1 ou 3 anos);<br>
-                            3. Sucessão Definitiva (após 10 anos da provisória = Morte Presumida).
+                    <div class="card-body">
+                        <div class="content">
+                            <p><strong>Domicílio (Art. 70):</strong> Residência com ânimo definitivo. A pessoa pode ter vários domicílios (Pluralidade).</p>
+                            <div class="box concept">
+                                <strong>Ausência (Morte Presumida):</strong> Quando a pessoa some sem deixar notícias.
+                                <br>1. <strong>Curadoria:</strong> Juiz nomeia alguém para cuidar dos bens.
+                                <br>2. <strong>Sucessão Provisória:</strong> Abre-se o testamento, herdeiros tomam posse com garantia.
+                                <br>3. <strong>Sucessão Definitiva:</strong> Após 10 anos da provisória. Equivale à morte real.
+                            </div>
                         </div>
-                    </div></div>
-                </div>
-
-                <div class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m1">Aula 6A</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Pessoa Jurídica</h3>
-                        <p class="card-summary">Desconsideração da Personalidade Jurídica (Art. 50).</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
                     </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-law">
-                            <strong>Requisitos (Teoria Maior):</strong> Exige <em>Abuso da Personalidade</em>, caracterizado por:
-                            <br>- Desvio de Finalidade; OU
-                            <br>- Confusão Patrimonial.
+                </article>
+
+                <article class="card m1">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 6</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Pessoa Jurídica e Desconsideração</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p>A PJ tem personalidade distinta dos sócios.</p>
+                            <div class="box law">
+                                <strong>Desconsideração da Personalidade (Art. 50):</strong> Permite cobrar dívida da empresa dos sócios. No Código Civil (Teoria Maior), exige prova de <strong>ABUSO</strong> (Desvio de Finalidade ou Confusão Patrimonial).
+                            </div>
+                            <p><em>Nota:</em> No CDC (Consumidor), basta a insolvência (Teoria Menor).</p>
                         </div>
-                        <p>No CDC (Consumidor), aplica-se a Teoria Menor (basta inadimplemento/insolvência).</p>
-                    </div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="m1-obrigacoes" class="content-section">
-            <div class="section-title">
-                <span>Direito das Obrigações</span>
-                <span class="legend"><span class="dot" style="background:var(--tag-m1)"></span>Conteúdo M1</span>
-            </div>
-            
-            <div class="card-list">
-                <div class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m1">Aula 1/2B</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Modalidades de Obrigações</h3>
-                        <p class="card-summary">Obrigação de Dar, Fazer e a Solidariedade.</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
                     </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-alert"><strong>Solidariedade (Art. 265):</strong> Não se presume, resulta da lei ou da vontade das partes.</div>
-                        <p><strong>Dar Coisa Certa:</strong> O credor não é obrigado a receber prestação diversa, ainda que mais valiosa.</p>
-                    </div></div>
-                </div>
+                </article>
 
-                <div class="card m1">
+                <article class="card m1">
                     <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m1">Aula 7/8B</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Responsabilidade Civil</h3>
-                        <p class="card-summary">Ato Ilícito, Dano e Nexo Causal.</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
+                        <div class="card-top"><span class="tag">Aula 7/8</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Classificação dos Bens</h3>
                     </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-law"><strong>Art. 186 CC:</strong> Aquele que, por ação ou omissão voluntária, negligência ou imprudência, violar direito e causar dano a outrem, ainda que exclusivamente moral, comete ato ilícito.</div>
-                        <p><strong>Subjetiva:</strong> Exige culpa. <strong>Objetiva:</strong> Independe de culpa (Risco da atividade).</p>
-                    </div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="m2-contratos" class="content-section">
-            <div class="section-title">
-                <span>Teoria Geral dos Contratos</span>
-                <span class="legend"><span class="dot" style="background:var(--tag-m2)"></span>Conteúdo M2</span>
-            </div>
-            
-            <div class="card-list">
-                <div class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m2">Aula 10</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Validade (Escada Ponteana)</h3>
-                        <p class="card-summary">Planos da Existência, Validade e Eficácia.</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
-                    </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-concept">
-                            <strong>Validade (Art. 104):</strong>
-                            1. Agente capaz;<br>
-                            2. Objeto lícito, possível, determinado;<br>
-                            3. Forma prescrita ou não defesa em lei.
+                    <div class="card-body">
+                        <div class="content">
+                            <ul>
+                                <li><strong>Fungíveis:</strong> Substituíveis (Dinheiro, Café).</li>
+                                <li><strong>Infungíveis:</strong> Únicos (Obra de arte).</li>
+                                <li><strong>Bens Públicos:</strong> Uso comum (rua), Uso especial (escola), Dominicais (sem destino). Bens públicos não sofrem usucapião.</li>
+                            </ul>
                         </div>
-                    </div></div>
-                </div>
-
-                <div class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m2">Aula 13</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Boa-fé Objetiva</h3>
-                        <p class="card-summary">Princípios contratuais sociais e figuras parcelares.</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
                     </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-law"><strong>Art. 422:</strong> Os contratantes são obrigados a guardar a probidade e boa-fé.</div>
-                        <p><strong>Venire Contra Factum Proprium:</strong> Vedação ao comportamento contraditório.</p>
-                        <p><strong>Supressio/Surrectio:</strong> Perda/Ganho de direito pelo tempo.</p>
-                    </div></div>
-                </div>
+                </article>
 
-                <div class="card m2">
+                <article class="card m1" style="border-left-color: #333;">
                     <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m2">Aula 16</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Contratos Eletrônicos</h3>
-                        <p class="card-summary">Validade e formação no meio digital.</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
+                        <div class="card-top"><span class="tag" style="background:#333; color:#fff">Aula 9</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>🏆 Avaliação Institucional M1</h3>
                     </div>
-                    <div class="card-details"><div class="details-padding">
-                        <p>São válidos pelo princípio da liberdade das formas. Formam-se quando a aceitação é expedida ou quando o sistema processa o clique (Click-wrap).</p>
-                    </div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="m2-extincao" class="content-section">
-            <div class="section-title">
-                <span>Crise e Extinção</span>
-                <span class="legend"><span class="dot" style="background:var(--tag-m2)"></span>Conteúdo M2</span>
-            </div>
-            
-            <div class="card-list">
-                <div class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m2">Aulas 15-17</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Vícios do Consentimento</h3>
-                        <p class="card-summary">Erro, Dolo, Coação, Lesão e Simulação.</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
-                    </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-alert"><strong>Simulação:</strong> É o único que gera NULIDADE (não prescreve, não convalida). Os outros geram anulabilidade (4 anos).</div>
-                        <p><strong>Estado de Perigo:</strong> Risco de vida (salvar-se).<br>
-                        <strong>Lesão:</strong> Necessidade econômica ou inexperiência.</p>
-                    </div></div>
-                </div>
-
-                <div class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-m2">Aula 19</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Teoria da Imprevisão</h3>
-                        <p class="card-summary">Onerosidade Excessiva (Art. 478).</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
-                    </div>
-                    <div class="card-details"><div class="details-padding">
-                        <div class="box box-law">
-                            Exige acontecimento <strong>extraordinário e imprevisível</strong> que torne a prestação excessivamente onerosa para um e vantajosa para o outro.
+                    <div class="card-body">
+                        <div class="content">
+                            <p>Semana destinada à aplicação da prova M1, cobrindo todo o conteúdo de Pessoas e Bens (Aulas 1 a 8).</p>
                         </div>
-                    </div></div>
-                </div>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="avaliacoes" class="content-section">
-            <div class="section-title">Calendário & Atualizações</div>
-            
+        <section id="mod2" class="content-section">
+            <div class="section-header">
+                <h2>Direito das Obrigações</h2>
+                <p>Aulas 1B a 8B (Vínculo Jurídico)</p>
+            </div>
+
             <div class="card-list">
-                <div class="card reforma">
+                <article class="card m1">
                     <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="aula-tag bg-new">Atualização 2025</span><i class="fas fa-chevron-down expand-icon"></i></div>
-                        <h3>Reforma do Código Civil</h3>
-                        <p class="card-summary">O que muda com o Anteprojeto em tramitação.</p>
-                        <div class="expand-btn">Ver Conteúdo</div>
+                        <div class="card-top"><span class="tag">Aula 1/2B</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Dar, Fazer e Solidariedade</h3>
                     </div>
-                    <div class="card-details"><div class="details-padding">
-                        <p>O Senado discute a modernização do CC/02. Principais pontos:</p>
-                        <ul>
-                            <li>Livro específico para Direito Digital.</li>
-                            <li>Revisão dos prazos prescricionais.</li>
-                            <li>Mitigação da intervenção do Estado nos contratos paritários.</li>
-                        </ul>
-                    </div></div>
-                </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p><strong>Dar Coisa Certa:</strong> Credor não é obrigado a aceitar coisa diversa. Se a coisa se perder sem culpa do devedor antes da entrega, a obrigação se resolve (ninguém paga nada).</p>
+                            <div class="box alert">
+                                <strong>Solidariedade (Art. 265):</strong> Não se presume. Se houver, o credor cobra a dívida inteira de qualquer devedor. Quem pagou cobra os outros (Regresso).
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-                <div class="card m1">
-                    <div class="card-header">
-                        <h3>Avaliação M1 (Aula 9)</h3>
-                        <p><strong>Conteúdo:</strong> Aulas 1 a 8 (Pessoas, Bens, Obrigações Iniciais).</p>
+                <article class="card m1">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 3/4B</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Pagamento Especial</h3>
                     </div>
-                </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <ul>
+                                <li><strong>Consignação:</strong> Depósito judicial (credor sumiu).</li>
+                                <li><strong>Sub-rogação:</strong> Substituição de credor (Fiador paga e assume o lugar).</li>
+                                <li><strong>Dação em Pagamento:</strong> Entregar algo diferente do combinado (exige acordo).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
 
-                <div class="card m2">
-                    <div class="card-header">
-                        <h3>Avaliação M2 (Aula 20)</h3>
-                        <p><strong>Conteúdo:</strong> Cumulativo (Foco em Contratos, Vícios e Extinção).</p>
+                <article class="card m1">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 5/6B</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Cessão de Crédito e Assunção de Dívida</h3>
                     </div>
-                </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <div class="box dict">
+                                <h4><i class="fas fa-exchange-alt"></i> Diferença de Ouro</h4>
+                                <p><strong>Cessão de Crédito (Vender o crédito):</strong> NÃO precisa de autorização do devedor (só notificar).</p>
+                                <p><strong>Assunção de Dívida (Passar a dívida):</strong> PRECISA de autorização expressa do credor (pois o novo devedor pode ser caloteiro).</p>
+                            </div>
+                            <p><strong>Novação:</strong> Criar dívida nova para extinguir a antiga.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card m1">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 7/8B</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Responsabilidade Civil (Art. 186)</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p><strong>Elementos:</strong> Conduta + Dano + Nexo Causal + Culpa (na subjetiva).</p>
+                            <p><strong>Objetiva (Art. 927 p.ú.):</strong> Independe de culpa. Aplica-se a atividades de risco e danos causados pelo Estado.</p>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
-    </div> <footer>
-        <div class="footer-content">
-            <h4 style="border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 15px;">
-                📚 Bibliografia Base
-            </h4>
-            <ul class="biblio-list">
-                <li>GONÇALVES, Carlos Roberto. <em>Direito Civil Brasileiro</em>. Vols. 1 e 2. Saraiva.</li>
-                <li>GAGLIANO, Pablo Stolze. <em>Novo Curso de Direito Civil</em>. Saraiva.</li>
-                <li>TARTUCE, Flávio. <em>Manual de Direito Civil</em>. Método.</li>
-                <li>BRASIL. <em>Lei nº 10.406 (Código Civil)</em>. 2002.</li>
-            </ul>
-            <div class="copyright">
-                &copy; 2025 Estudos UMC - Bens, Negócios e Contratos.
+        <section id="mod3" class="content-section">
+            <div class="section-header">
+                <h2>Teoria Geral dos Contratos</h2>
+                <p>Aulas 10 a 14 (Formação e Validade)</p>
             </div>
-        </div>
+
+            <div class="card-list">
+                <article class="card m2">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 10</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Fato Jurídico e Escada Ponteana</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p>A validade do negócio jurídico depende de 3 planos (Pontes de Miranda):</p>
+                            <ol>
+                                <li><strong>Existência:</strong> Agente, Vontade, Objeto, Forma.</li>
+                                <li><strong>Validade (Art. 104):</strong> Agente Capaz, Objeto Lícito, Forma Prescrita.</li>
+                                <li><strong>Eficácia:</strong> Condição, Termo e Encargo.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card m2">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 11</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Classificação dos Contratos</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p>Entender a espécie define as regras aplicáveis:</p>
+                            <ul>
+                                <li><strong>Unilaterais:</strong> Obrigação só para um (Doação pura).</li>
+                                <li><strong>Bilaterais:</strong> Obrigação para ambos (Compra e Venda).</li>
+                                <li><strong>Comutativos:</strong> Prestações certas (sei o que vou ganhar).</li>
+                                <li><strong>Aleatórios:</strong> Depende da sorte (Seguro, Aposta).</li>
+                                <li><strong>Adesão:</strong> Cláusulas prontas, sem chance de negociar.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card m2">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 12/13</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Boa-fé Objetiva e Função Social</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <div class="box concept">
+                                <strong>Boa-fé Objetiva (Art. 422):</strong> É o dever ético de lealdade. Gera a proibição do <em>Venire Contra Factum Proprium</em> (proibição de comportamento contraditório).
+                            </div>
+                            <p><strong>Função Social (Art. 421):</strong> O contrato não pode prejudicar a sociedade ou ferir a dignidade humana.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card m2">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 14</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Efeitos perante Terceiros</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p><strong>Estipulação em Favor de Terceiro:</strong> Contrato onde o benefício vai para alguém de fora. Ex: Seguro de Vida (o beneficiário recebe sem ter assinado).</p>
+                            <p><strong>Vícios Redibitórios:</strong> Defeitos ocultos na coisa que diminuem seu valor. Permitem rejeitar a coisa ou pedir abatimento.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="mod4" class="content-section">
+            <div class="section-header">
+                <h2>Vícios e Extinção</h2>
+                <p>Aulas 15 a 20 (Fim do Contrato)</p>
+            </div>
+
+            <div class="card-list">
+                <article class="card m2">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 15/16</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Erro, Dolo e Coação</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <div class="box dict">
+                                <p><strong>Erro:</strong> Falsa percepção da realidade (engano-me sozinho).</p>
+                                <p><strong>Dolo:</strong> Indução ao erro por má-fé do outro (sou enganado).</p>
+                                <p><strong>Coação:</strong> Ameaça física ou moral que incute medo.</p>
+                            </div>
+                            <p>Geram a <strong>ANULABILIDADE</strong> do negócio (Prazo: 4 anos).</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card m2">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 17</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Estado de Perigo, Lesão e Negociações</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p><strong>Estado de Perigo:</strong> Assumir obrigação excessiva para salvar a vida (dolo de aproveitamento da outra parte). Ex: Cheque caução no hospital.</p>
+                            <p><strong>Lesão:</strong> Assumir prestação desproporcional por necessidade ou inexperiência.</p>
+                            <div class="box law">
+                                <strong>Negociações Preliminares:</strong> Fase antes do contrato. Se romper injustificadamente criando expectativa, gera dever de indenizar!
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card m2">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 18</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Extinção do Contrato</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p>Como o contrato acaba antes da hora?</p>
+                            <ul>
+                                <li><strong>Resilição (Vontade):</strong> Pode ser Bilateral (Distrato) ou Unilateral (Denúncia).</li>
+                                <li><strong>Resolução (Problema):</strong> Por Inadimplemento (calote) ou Onerosidade Excessiva.</li>
+                            </ul>
+                            <p><strong>Prescrição:</strong> Perda da pretensão (direito de ação) pelo decurso do tempo.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card m2">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag">Aula 19</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>Teoria da Imprevisão (Art. 478)</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p>Permite a resolução ou revisão do contrato se ocorrer:</p>
+                            <ol>
+                                <li>Fato extraordinário e imprevisível;</li>
+                                <li>Que gere onerosidade excessiva para um;</li>
+                                <li>E vantagem extrema para o outro.</li>
+                            </ol>
+                            <div class="box alert">
+                                <strong>Dica:</strong> Inflação no Brasil NÃO é considerada imprevisível.
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card m2" style="border-left-color: #333;">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <div class="card-top"><span class="tag" style="background:#333; color:#fff">Aula 20</span><i class="fas fa-chevron-down icon"></i></div>
+                        <h3>🏆 Avaliação Institucional M2</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="content">
+                            <p>Semana destinada à prova M2. Conteúdo cumulativo, com foco nos Vícios do Negócio Jurídico, Princípios Contratuais e Extinção.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Desenvolvido para UMC - Direito Civil 2025</p>
+        <p class="small">Parceiro de Programação IA</p>
     </footer>
 
-    <button id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
-
-    <script>
-        // --- 1. Sistema de Abas ---
-        function openTab(tabName) {
-            // Esconde todas as seções
-            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
-            
-            // Mostra a selecionada
-            const target = document.getElementById(tabName);
-            if(target) target.classList.add('active');
-            
-            // Atualiza botões
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-
-            // Scroll para o topo
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // --- 2. Acordeão "Gaveta" (Abre um, fecha outros) ---
-        function toggleCard(header) {
-            const content = header.nextElementSibling;
-            const icon = header.querySelector('.expand-icon');
-            
-            // Verifica estado atual
-            const isOpen = content.style.maxHeight;
-
-            // FECHA TODOS primeiro
-            document.querySelectorAll('.card-details').forEach(el => el.style.maxHeight = null);
-            document.querySelectorAll('.expand-icon').forEach(el => el.style.transform = "rotate(0deg)");
-
-            // Se estava fechado, ABRE agora
-            if (!isOpen) {
-                content.style.maxHeight = content.scrollHeight + "px";
-                icon.style.transform = "rotate(180deg)";
-                
-                // Centraliza na tela suavemente
-                setTimeout(() => {
-                    header.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
-            }
-        }
-
-        // --- 3. Botão Voltar ao Topo ---
-        window.onscroll = function() {
-            const btn = document.getElementById("backToTop");
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                btn.style.display = "block";
-            } else {
-                btn.style.display = "none";
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
