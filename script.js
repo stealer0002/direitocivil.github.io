@@ -1,29 +1,39 @@
-function openTab(tabId) {
-    // Esconde todas as seções
-    document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
-    // Desativa botões
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+document.addEventListener('DOMContentLoaded', () => {
     
-    // Ativa o alvo
-    document.getElementById(tabId).classList.add('active');
-    event.currentTarget.classList.add('active');
-    
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+    // Configuração do Scroll Reveal (Intersection Observer)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-function toggleCard(header) {
-    const body = header.nextElementSibling;
-    const icon = header.querySelector('.icon');
-    const isOpen = body.style.maxHeight;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Para animar apenas uma vez
+            }
+        });
+    }, observerOptions);
 
-    // Fecha todos
-    document.querySelectorAll('.card-body').forEach(el => el.style.maxHeight = null);
-    document.querySelectorAll('.icon').forEach(el => el.style.transform = 'rotate(0deg)');
+    const elementsToReveal = document.querySelectorAll('.scroll-reveal');
+    elementsToReveal.forEach(el => observer.observe(el));
 
-    // Abre o atual se estava fechado
-    if (!isOpen) {
-        body.style.maxHeight = body.scrollHeight + "px";
-        icon.style.transform = 'rotate(180deg)';
-        setTimeout(() => header.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 300);
-    }
-}
+    // Smooth Scroll para links de âncora
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+
+});
