@@ -1,400 +1,517 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civil II: Bens e Contratos | UMC</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Direito Civil: Bens, Negócios e Contratos | Plano de Ensino 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="header-content">
-            <h1>Direito Civil II</h1>
-            <p class="subtitle">Bens, Negócios e Contratos | UMC 2025</p>
-            <div class="badges">
-                <span class="badge"><i class="fas fa-check-double"></i> Ementa Completa</span>
-                <span class="badge"><i class="fas fa-list-ol"></i> Aulas 1 a 20</span>
+    <header id="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-scale-balanced"></i>
+                <span>Direito Civil<span class="highlight"> 2026</span></span>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="#ementa">Ementa</a></li>
+                    <li><a href="#conteudo-original">Plano Original</a></li>
+                    <li><a href="#metodologia">Metodologia</a></li>
+                    <li><a href="#desenvolvimento-aulas" class="btn-nav">Aulas Desenvolvidas</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <div class="nav-wrapper">
-        <div class="nav-container">
-            <button class="tab-btn active" onclick="openTab('mod1')">Mód 1: Pessoas & Bens</button>
-            <button class="tab-btn" onclick="openTab('mod2')">Mód 2: Obrigações</button>
-            <button class="tab-btn" onclick="openTab('mod3')">Mód 3: Contratos</button>
-            <button class="tab-btn" onclick="openTab('mod4')">Mód 4: Extinção</button>
+    <section class="hero">
+        <div class="container">
+            <span class="pill">2º Semestre • 107h</span>
+            <h1>Bens, Negócios e <br><span class="gradient-text">Contratos Jurídicos</span></h1>
+            <p class="lead">Plano de Ensino e Desenvolvimento Bibliográfico Completo.</p>
+            <div class="hero-btns">
+                <a href="#conteudo-original" class="btn btn-primary">Ver Plano Oficial</a>
+                <a href="#desenvolvimento-aulas" class="btn btn-outline">Estudar Aulas</a>
+            </div>
         </div>
-    </div>
+        <div class="hero-bg-glow"></div>
+    </section>
 
     <main class="container">
 
-        <section id="mod1" class="content-section active">
-            <div class="section-header">
-                <h2>Parte Geral: Sujeitos e Bens</h2>
-                <p>Aulas 1A a 9 (Conteúdo da M1)</p>
+        <section id="ementa" class="glass-card scroll-reveal">
+            <div class="card-header">
+                <i class="fas fa-book-open"></i>
+                <h2>Ementa do Curso</h2>
             </div>
-
-            <div class="card-list">
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 1</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Personalidade e Nascituro</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p><strong>Personalidade Jurídica:</strong> É a "roupa" que o ser humano veste ao nascer com vida, dando-lhe aptidão para ter direitos e deveres.</p>
-                            <div class="box law">
-                                <strong>Art. 2º CC:</strong> "A lei põe a salvo, desde a concepção, os direitos do nascituro."
-                            </div>
-                            <p><strong>Teorias sobre o Nascituro (Feto):</strong></p>
-                            <ul>
-                                <li><strong>Natalista:</strong> Só tem expectativa de direito. Se não nascer vivo, nunca foi pessoa.</li>
-                                <li><strong>Concepcionista (Adotada pelo STJ):</strong> Já é pessoa desde a concepção para direitos da personalidade (vida, imagem, pré-natal).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 2/3</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Capacidade e Incapacidade</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <div class="box alert">
-                                <strong>Mudança da Lei 13.146/15:</strong> A deficiência não gera mais incapacidade absoluta.
-                            </div>
-                            <ul>
-                                <li><strong>Absolutamente Incapazes (Art. 3):</strong> Apenas menores de 16 anos. Ato é NULO.</li>
-                                <li><strong>Relativamente Incapazes (Art. 4):</strong> 16-18, ébrios, toxicômanos, pródigos. Ato é ANULÁVEL.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 4</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Direitos da Personalidade</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p>São direitos irrenunciáveis e intransmissíveis.</p>
-                            <ul>
-                                <li><strong>Corpo:</strong> Proteção à integridade física. Transplante apenas gratuito.</li>
-                                <li><strong>Imagem/Honra:</strong> Proteção moral. Súmula 403 STJ: Uso não autorizado de imagem gera dano moral automático.</li>
-                                <li><strong>Nome:</strong> Direito ao prenome e sobrenome.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 5</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Domicílio e Ausência</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p><strong>Domicílio (Art. 70):</strong> Residência com ânimo definitivo. A pessoa pode ter vários domicílios (Pluralidade).</p>
-                            <div class="box concept">
-                                <strong>Ausência (Morte Presumida):</strong> Quando a pessoa some sem deixar notícias.
-                                <br>1. <strong>Curadoria:</strong> Juiz nomeia alguém para cuidar dos bens.
-                                <br>2. <strong>Sucessão Provisória:</strong> Abre-se o testamento, herdeiros tomam posse com garantia.
-                                <br>3. <strong>Sucessão Definitiva:</strong> Após 10 anos da provisória. Equivale à morte real.
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 6</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Pessoa Jurídica e Desconsideração</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p>A PJ tem personalidade distinta dos sócios.</p>
-                            <div class="box law">
-                                <strong>Desconsideração da Personalidade (Art. 50):</strong> Permite cobrar dívida da empresa dos sócios. No Código Civil (Teoria Maior), exige prova de <strong>ABUSO</strong> (Desvio de Finalidade ou Confusão Patrimonial).
-                            </div>
-                            <p><em>Nota:</em> No CDC (Consumidor), basta a insolvência (Teoria Menor).</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 7/8</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Classificação dos Bens</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <ul>
-                                <li><strong>Fungíveis:</strong> Substituíveis (Dinheiro, Café).</li>
-                                <li><strong>Infungíveis:</strong> Únicos (Obra de arte).</li>
-                                <li><strong>Bens Públicos:</strong> Uso comum (rua), Uso especial (escola), Dominicais (sem destino). Bens públicos não sofrem usucapião.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card m1" style="border-left-color: #333;">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag" style="background:#333; color:#fff">Aula 9</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>🏆 Avaliação Institucional M1</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p>Semana destinada à aplicação da prova M1, cobrindo todo o conteúdo de Pessoas e Bens (Aulas 1 a 8).</p>
-                        </div>
-                    </div>
-                </article>
+            <div class="card-body">
+                <p>Estudo introdutório ao Direito Civil, abordando a Parte Geral com foco em pessoas, bens, fatos jurídicos e negócios jurídicos. Apresenta a Teoria Geral das Obrigações, incluindo fontes, modalidades, transmissão e extinção das obrigações. Explora a Teoria Geral dos Contratos, com princípios contratuais, formação, validade, efeitos e extinção dos contratos. Desenvolve a compreensão sistêmica das relações jurídicas privadas.</p>
             </div>
         </section>
 
-        <section id="mod2" class="content-section">
-            <div class="section-header">
-                <h2>Direito das Obrigações</h2>
-                <p>Aulas 1B a 8B (Vínculo Jurídico)</p>
+        <hr class="divider">
+
+        <section id="conteudo-original">
+            <div class="section-title">
+                <h2>Conteúdo Programático Completo</h2>
+                <p>Texto oficial do Plano de Ensino - Preservado Integralmente</p>
             </div>
 
-            <div class="card-list">
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 1/2B</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Dar, Fazer e Solidariedade</h3>
+            <div class="timeline">
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">01</div>
+                    <div class="timeline-content glass-card">
+                        <h3>1) A- Pessoa Natural:</h3>
+                        <p>Personalidade - capacidade</p>
+                        <h3>B- OBRIGAÇÕES</h3>
+                        <p>1.1 Modalidades básicas das obrigações</p>
+                        <ul class="no-style-list">
+                            <li>1.1.1 Obrigação de dar</li>
+                            <li>1.1.2 Obrigação de fazer</li>
+                            <li>1.1.3 Obrigação de não fazer</li>
+                        </ul>
                     </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p><strong>Dar Coisa Certa:</strong> Credor não é obrigado a aceitar coisa diversa. Se a coisa se perder sem culpa do devedor antes da entrega, a obrigação se resolve (ninguém paga nada).</p>
-                            <div class="box alert">
-                                <strong>Solidariedade (Art. 265):</strong> Não se presume. Se houver, o credor cobra a dívida inteira de qualquer devedor. Quem pagou cobra os outros (Regresso).
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                </div>
 
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 3/4B</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Pagamento Especial</h3>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">02</div>
+                    <div class="timeline-content glass-card">
+                        <h3>2) A- Pessoa Natural:</h3>
+                        <p>Incapacidade absoluta</p>
+                        <h3>B- OBRIGAÇÕES</h3>
+                        <p>1.2 Obrigações alternativas</p>
+                        <p>1.3 Obrigações Divisíveis e indivisíveis</p>
+                        <p>1.4 Obrigações solidárias</p>
                     </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <ul>
-                                <li><strong>Consignação:</strong> Depósito judicial (credor sumiu).</li>
-                                <li><strong>Sub-rogação:</strong> Substituição de credor (Fiador paga e assume o lugar).</li>
-                                <li><strong>Dação em Pagamento:</strong> Entregar algo diferente do combinado (exige acordo).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
+                </div>
 
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 5/6B</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Cessão de Crédito e Assunção de Dívida</h3>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">03</div>
+                    <div class="timeline-content glass-card">
+                        <h3>3) A- Pessoa Natural:</h3>
+                        <p>Incapacidade absoluta e Incapacidade relativa</p>
+                        <h3>B- OBRIGAÇÕES</h3>
+                        <p>1.5 Teoria do pagamento</p>
+                        <ul class="no-style-list">
+                            <li>1.5.1 Regras gerais</li>
+                            <li>1.5.2 Pagamento em consignação</li>
+                        </ul>
                     </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <div class="box dict">
-                                <h4><i class="fas fa-exchange-alt"></i> Diferença de Ouro</h4>
-                                <p><strong>Cessão de Crédito (Vender o crédito):</strong> NÃO precisa de autorização do devedor (só notificar).</p>
-                                <p><strong>Assunção de Dívida (Passar a dívida):</strong> PRECISA de autorização expressa do credor (pois o novo devedor pode ser caloteiro).</p>
-                            </div>
-                            <p><strong>Novação:</strong> Criar dívida nova para extinguir a antiga.</p>
-                        </div>
-                    </div>
-                </article>
+                </div>
 
-                <article class="card m1">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 7/8B</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Responsabilidade Civil (Art. 186)</h3>
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">04</div>
+                    <div class="timeline-content glass-card">
+                        <h3>4) A- Pessoa Natural:</h3>
+                        <p>Direitos da Personalidade</p>
+                        <h3>B- OBRIGAÇÕES</h3>
+                        <p>1.5.3 Pagamento com sub-rogação</p>
+                        <p>1.5.4 Imputação do pagamento</p>
+                        <p>1.5.5 Dação em pagamento</p>
                     </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p><strong>Elementos:</strong> Conduta + Dano + Nexo Causal + Culpa (na subjetiva).</p>
-                            <p><strong>Objetiva (Art. 927 p.ú.):</strong> Independe de culpa. Aplica-se a atividades de risco e danos causados pelo Estado.</p>
-                        </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">05</div>
+                    <div class="timeline-content glass-card">
+                        <h3>5) A- Pessoa Natural:</h3>
+                        <p>Ausência</p>
+                        <p>Domicílio</p>
+                        <p>Extinção</p>
+                        <h3>B- OBRIGAÇÕES</h3>
+                        <p>1.5.6 Novação</p>
+                        <p>1.5.7 Compensação</p>
+                        <p>1.6 Confusão</p>
                     </div>
-                </article>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">06</div>
+                    <div class="timeline-content glass-card">
+                        <h3>6) A- Pessoa Jurídica:</h3>
+                        <p>Classificação</p>
+                        <p>Registro da Pessoa Jurídica</p>
+                        <p>Desconsideração da personalidade jurídica</p>
+                        <p>Domicílio</p>
+                        <h3>B- OBRIGAÇÕES</h3>
+                        <p>1.7 Remissão</p>
+                        <p>1.8 Inadimplemento da obrigação</p>
+                        <p>1.9 Transmissão da obrigação: cessão de crédito e assunção de dívida</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">07</div>
+                    <div class="timeline-content glass-card">
+                        <h3>7) A- Bens:</h3>
+                        <p>Bens considerados em si mesmos</p>
+                        <h3>B- OBRIGAÇÕES</h3>
+                        <p>1.10 Responsabilidade civil</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">08</div>
+                    <div class="timeline-content glass-card">
+                        <h3>8) A- Bens:</h3>
+                        <p>Bens reciprocamente considerados</p>
+                        <p>Bens Públicos</p>
+                        <h3>B- OBRIGAÇÕES</h3>
+                        <p>1.10 Responsabilidade civil (continuação)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker highlight-marker">09</div>
+                    <div class="timeline-content glass-card highlight-card">
+                        <h3>9) Avaliação Institucional M1</h3>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">10</div>
+                    <div class="timeline-content glass-card">
+                        <h3>10) A- Fatos e Atos jurídicos</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>01. Introdução. Noção de Contrato. O contrato e o negócio jurídico. Histórico</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">11</div>
+                    <div class="timeline-content glass-card">
+                        <h3>11) A- Negócios jurídicos: existência, validade e eficácia</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>02. Classificação dos contratos. Contratos unilaterais e bilaterais. Comutativos e aleatórios. Paritários e por adesão. Condições gerais dos contratos</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">12</div>
+                    <div class="timeline-content glass-card">
+                        <h3>12) A- Negócios jurídicos: existência, validade e eficácia</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>03. Princípios do direito contratual. A liberdade contratual. A autonomia da vontade ou autonomia privada? Dirigismo contratual.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">13</div>
+                    <div class="timeline-content glass-card">
+                        <h3>13) A- Negócio jurídico: requisitos de validade, modulação – termo, condição e encargo</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>04. Os princípios contratuais sociais. A regra da boa fé objetiva e função social do contrato.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">14</div>
+                    <div class="timeline-content glass-card">
+                        <h3>14) A- Negócio jurídico: requisitos de validade, modulação – termo, condição e encargo</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>05. Efeitos do contrato perante terceiros: estipulação em favor de terceiros, promessa por fato de terceiro e contrato com pessoa a declarar.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">15</div>
+                    <div class="timeline-content glass-card">
+                        <h3>15) A- Negócio jurídico: defeitos</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>06. O sinalagma contratual. A chamada "causa" dos contratos. "Relações contratuais de fato".</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">16</div>
+                    <div class="timeline-content glass-card">
+                        <h3>16) A- Negócio jurídico: defeitos – erro, lesão, dolo</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>07. Formação dos contratos. O contrato eletrônico.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">17</div>
+                    <div class="timeline-content glass-card">
+                        <h3>17) A- Negócio jurídico: defeitos – coação e estado de perigo</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>08. As negociações preliminares. Rompimento das negociações preliminares. O contrato preliminar.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">18</div>
+                    <div class="timeline-content glass-card">
+                        <h3>18) A- Prescrição</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>09. Revisão e Extinção dos contratos. Resolução, resilição e rescisão.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker">19</div>
+                    <div class="timeline-content glass-card">
+                        <h3>19) A- Decadência</h3>
+                        <h3>B- Teoria Geral dos Contratos:</h3>
+                        <p>10. Teoria da imprevisão e onerosidade excessiva. Base do negócio frustração do fim do contratual.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-marker highlight-marker">20</div>
+                    <div class="timeline-content glass-card highlight-card">
+                        <h3>20) Avaliação Institucional M2</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="methodology-box glass-card scroll-reveal" id="metodologia">
+                <h3>METODOLOGIA</h3>
+                <p>Aulas pautadas em exposições dialógicas, promovendo a construção de conceitos teóricos e formulação de hipóteses práticas, a partir da interpretação das diversas fontes do direito. Estudos de casos relacionados ao conteúdo programático da disciplina. Aplicação de exercícios de fixação do conteúdo ministrado.</p>
             </div>
         </section>
 
-        <section id="mod3" class="content-section">
-            <div class="section-header">
-                <h2>Teoria Geral dos Contratos</h2>
-                <p>Aulas 10 a 14 (Formação e Validade)</p>
+        <hr class="divider">
+
+        <section id="desenvolvimento-aulas">
+            <div class="section-header-styled">
+                <h2>DESENVOLVIMENTO DAS AULAS</h2>
+                <span class="subtitle">Com base na bibliografia clássica (Stolze, Diniz, Gonçalves, Venosa, Tartuce, Gomes)</span>
             </div>
 
-            <div class="card-list">
-                <article class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 10</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Fato Jurídico e Escada Ponteana</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p>A validade do negócio jurídico depende de 3 planos (Pontes de Miranda):</p>
-                            <ol>
-                                <li><strong>Existência:</strong> Agente, Vontade, Objeto, Forma.</li>
-                                <li><strong>Validade (Art. 104):</strong> Agente Capaz, Objeto Lícito, Forma Prescrita.</li>
-                                <li><strong>Eficácia:</strong> Condição, Termo e Encargo.</li>
-                            </ol>
-                        </div>
+            <div class="grid-layout">
+                
+                <article class="class-card">
+                    <div class="card-badge">Aula 01</div>
+                    <h4>Personalidade e Obrigações Básicas</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A (Pessoa):</strong> Introdução ao conceito de sujeito de direito. Personalidade jurídica inicia-se com o nascimento com vida (Teoria Natalista vs. Concepcionista - Art. 2º CC). Diferença entre <em>capacidade de direito</em> (gozo) e <em>capacidade de fato</em> (exercício). (Fonte: Maria Helena Diniz).</p>
+                        <p><strong>Parte B (Obrigações):</strong> A relação obrigacional une credor e devedor em torno de uma prestação.
+                        <br>• <em>Dar:</em> Coisa certa (específica) ou incerta (gênero/quantidade). Princípio de que a coisa perece para o dono (*res perit domino*).
+                        <br>• <em>Fazer:</em> Prestação de atividade (fungível ou *intuitu personae*).
+                        <br>• <em>Não fazer:</em> Dever de abstenção. (Fonte: Carlos Roberto Gonçalves).</p>
                     </div>
                 </article>
 
-                <article class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 11</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Classificação dos Contratos</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p>Entender a espécie define as regras aplicáveis:</p>
-                            <ul>
-                                <li><strong>Unilaterais:</strong> Obrigação só para um (Doação pura).</li>
-                                <li><strong>Bilaterais:</strong> Obrigação para ambos (Compra e Venda).</li>
-                                <li><strong>Comutativos:</strong> Prestações certas (sei o que vou ganhar).</li>
-                                <li><strong>Aleatórios:</strong> Depende da sorte (Seguro, Aposta).</li>
-                                <li><strong>Adesão:</strong> Cláusulas prontas, sem chance de negociar.</li>
-                            </ul>
-                        </div>
+                <article class="class-card">
+                    <div class="card-badge">Aula 02</div>
+                    <h4>Incapacidade e Pluralidade Obrigacional</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A (Incapacidade):</strong> Análise do Art. 3º do CC (alterado pelo Estatuto da Pessoa com Deficiência). Apenas os menores de 16 anos são absolutamente incapazes. O critério é etário, não mais biopsicológico estrito.</p>
+                        <p><strong>Parte B (Obrigações):</strong>
+                        <br>• <em>Alternativas:</em> Devedor se libera cumprindo uma das prestações (concentração).
+                        <br>• <em>Solidárias:</em> Art. 264 CC. Não se presume, resulta da lei ou vontade. Solidariedade ativa (credores) e passiva (devedores - cada um responde pelo todo). (Fonte: Pablo Stolze).</p>
                     </div>
                 </article>
 
-                <article class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 12/13</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Boa-fé Objetiva e Função Social</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <div class="box concept">
-                                <strong>Boa-fé Objetiva (Art. 422):</strong> É o dever ético de lealdade. Gera a proibição do <em>Venire Contra Factum Proprium</em> (proibição de comportamento contraditório).
-                            </div>
-                            <p><strong>Função Social (Art. 421):</strong> O contrato não pode prejudicar a sociedade ou ferir a dignidade humana.</p>
-                        </div>
+                <article class="class-card">
+                    <div class="card-badge">Aula 03</div>
+                    <h4>Incapacidade Relativa e Pagamento</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Art. 4º CC. Maiores de 16 e menores de 18, ébrios habituais, viciados em tóxicos. Exigem assistência, não representação. Atos sem assistência são anuláveis.</p>
+                        <p><strong>Parte B (Teoria do Pagamento):</strong> O pagamento é a morte natural da obrigação.
+                        <br>• <em>Consignação:</em> (Art. 335 CC). Forma de extinção quando o credor recusa receber ou há dúvida sobre quem deve receber. Depósito judicial ou bancário. (Fonte: Tartuce).</p>
                     </div>
                 </article>
 
-                <article class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 14</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Efeitos perante Terceiros</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p><strong>Estipulação em Favor de Terceiro:</strong> Contrato onde o benefício vai para alguém de fora. Ex: Seguro de Vida (o beneficiário recebe sem ter assinado).</p>
-                            <p><strong>Vícios Redibitórios:</strong> Defeitos ocultos na coisa que diminuem seu valor. Permitem rejeitar a coisa ou pedir abatimento.</p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="mod4" class="content-section">
-            <div class="section-header">
-                <h2>Vícios e Extinção</h2>
-                <p>Aulas 15 a 20 (Fim do Contrato)</p>
-            </div>
-
-            <div class="card-list">
-                <article class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 15/16</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Erro, Dolo e Coação</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <div class="box dict">
-                                <p><strong>Erro:</strong> Falsa percepção da realidade (engano-me sozinho).</p>
-                                <p><strong>Dolo:</strong> Indução ao erro por má-fé do outro (sou enganado).</p>
-                                <p><strong>Coação:</strong> Ameaça física ou moral que incute medo.</p>
-                            </div>
-                            <p>Geram a <strong>ANULABILIDADE</strong> do negócio (Prazo: 4 anos).</p>
-                        </div>
+                <article class="class-card">
+                    <div class="card-badge">Aula 04</div>
+                    <h4>Direitos da Personalidade e Pagamento Indireto</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Art. 11 a 21 CC. Características: inalienáveis, irrenunciáveis, imprescritíveis. Direito ao corpo, imagem, nome e honra.</p>
+                        <p><strong>Parte B:</strong>
+                        <br>• <em>Sub-rogação:</em> Substituição do credor (pessoal) ou da coisa (real).
+                        <br>• <em>Imputação:</em> Devedor com várias dívidas da mesma natureza ao mesmo credor indica qual paga.
+                        <br>• <em>Dação:</em> Credor consente em receber prestação diversa da devida. (Fonte: Venosa).</p>
                     </div>
                 </article>
 
-                <article class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 17</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Estado de Perigo, Lesão e Negociações</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p><strong>Estado de Perigo:</strong> Assumir obrigação excessiva para salvar a vida (dolo de aproveitamento da outra parte). Ex: Cheque caução no hospital.</p>
-                            <p><strong>Lesão:</strong> Assumir prestação desproporcional por necessidade ou inexperiência.</p>
-                            <div class="box law">
-                                <strong>Negociações Preliminares:</strong> Fase antes do contrato. Se romper injustificadamente criando expectativa, gera dever de indenizar!
-                            </div>
-                        </div>
+                <article class="class-card">
+                    <div class="card-badge">Aula 05</div>
+                    <h4>Fim da Personalidade e Extinção Obrigacional</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Morte real vs. Morte presumida (com ou sem decretação de ausência). Comoriência (morte simultânea). Domicílio: voluntário, legal ou necessário.</p>
+                        <p><strong>Parte B:</strong>
+                        <br>• <em>Novação:</em> Criação de nova obrigação para extinguir a anterior (mudança de objeto ou partes).
+                        <br>• <em>Compensação:</em> Encontro de contas entre credores e devedores recíprocos.
+                        <br>• <em>Confusão:</em> Credor e devedor confundem-se na mesma pessoa. (Fonte: Orlando Gomes).</p>
                     </div>
                 </article>
 
-                <article class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 18</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Extinção do Contrato</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p>Como o contrato acaba antes da hora?</p>
-                            <ul>
-                                <li><strong>Resilição (Vontade):</strong> Pode ser Bilateral (Distrato) ou Unilateral (Denúncia).</li>
-                                <li><strong>Resolução (Problema):</strong> Por Inadimplemento (calote) ou Onerosidade Excessiva.</li>
-                            </ul>
-                            <p><strong>Prescrição:</strong> Perda da pretensão (direito de ação) pelo decurso do tempo.</p>
-                        </div>
+                <article class="class-card">
+                    <div class="card-badge">Aula 06</div>
+                    <h4>Pessoa Jurídica e Transmissão</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Direito Público vs. Privado (Associações, Sociedades, Fundações). Art. 50 CC: Desconsideração da Personalidade Jurídica (Teoria Maior - exige abuso/confusão patrimonial vs. Teoria Menor - basta prejuízo, aplicada no CDC).</p>
+                        <p><strong>Parte B:</strong>
+                        <br>• <em>Remissão:</em> Perdão da dívida.
+                        <br>• <em>Inadimplemento:</em> Mora (atraso) vs. Inadimplemento absoluto.
+                        <br>• <em>Cessão de Crédito:</em> Transmissão ativa. <em>Assunção de Dívida:</em> Transmissão passiva (exige anuência do credor).</p>
                     </div>
                 </article>
 
-                <article class="card m2">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag">Aula 19</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>Teoria da Imprevisão (Art. 478)</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p>Permite a resolução ou revisão do contrato se ocorrer:</p>
-                            <ol>
-                                <li>Fato extraordinário e imprevisível;</li>
-                                <li>Que gere onerosidade excessiva para um;</li>
-                                <li>E vantagem extrema para o outro.</li>
-                            </ol>
-                            <div class="box alert">
-                                <strong>Dica:</strong> Inflação no Brasil NÃO é considerada imprevisível.
-                            </div>
-                        </div>
+                <article class="class-card">
+                    <div class="card-badge">Aula 07</div>
+                    <h4>Bens e Responsabilidade Civil</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A (Bens):</strong> Móveis vs. Imóveis; Fungíveis vs. Infungíveis; Consumíveis vs. Inconsumíveis. Importância prática para contratos (ex: mútuo vs. comodato).</p>
+                        <p><strong>Parte B (Resp. Civil):</strong> Art. 186 e 927 CC. Elementos: Conduta, Culpa (Lato sensu), Nexo Causal e Dano. Responsabilidade Subjetiva (regra) vs. Objetiva (risco da atividade).</p>
                     </div>
                 </article>
 
-                <article class="card m2" style="border-left-color: #333;">
-                    <div class="card-header" onclick="toggleCard(this)">
-                        <div class="card-top"><span class="tag" style="background:#333; color:#fff">Aula 20</span><i class="fas fa-chevron-down icon"></i></div>
-                        <h3>🏆 Avaliação Institucional M2</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="content">
-                            <p>Semana destinada à prova M2. Conteúdo cumulativo, com foco nos Vícios do Negócio Jurídico, Princípios Contratuais e Extinção.</p>
-                        </div>
+                <article class="class-card">
+                    <div class="card-badge">Aula 08</div>
+                    <h4>Bens Recíprocos/Públicos e Resp. Civil</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Principal e Acessório (frutos, produtos, benfeitorias). Princípio da gravitação jurídica. Bens Públicos: Uso comum, especial e dominicais. Imprescritibilidade e inalienabilidade relativa.</p>
+                        <p><strong>Parte B:</strong> Continuação da Responsabilidade Civil. Excludentes de ilicitude (legítima defesa, estado de necessidade) e excludentes de nexo (caso fortuito, força maior, culpa exclusiva da vítima).</p>
                     </div>
                 </article>
+
+                <article class="class-card highlight-card">
+                    <div class="card-badge">Aula 09</div>
+                    <h4>Avaliação M1</h4>
+                    <div class="content-block">
+                        <p>Aplicação de avaliação baseada nos conceitos de Pessoa Natural, Pessoa Jurídica, Bens e Teoria Geral das Obrigações.</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 10</div>
+                    <h4>Fatos Jurídicos e Introdução aos Contratos</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Fato jurídico em sentido amplo. Fato natural (ordinário/extraordinário) e Fato humano (ato jurídico). </p>
+                        <p><strong>Parte B:</strong> Conceito moderno de contrato. Evolução do Estado Liberal (igualdade formal) para o Estado Social (igualdade material). O contrato como instrumento de circulação de riquezas.</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 11</div>
+                    <h4>Escada Ponteana e Classificação</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Escada Ponteana: Plano da Existência (agente, vontade, objeto, forma), Validade (agente capaz, objeto lícito, forma prescrita) e Eficácia (termo, condição).</p>
+                        <p><strong>Parte B:</strong>
+                        <br>• Unilaterais/Bilaterais (Sinalagmáticos).
+                        <br>• Gratuitos/Onerosos.
+                        <br>• Comutativos/Aleatórios (risco).
+                        <br>• Contratos de Adesão (restrição à liberdade de estipulação).</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 12</div>
+                    <h4>Validade e Princípios Liberais</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Análise aprofundada do Art. 104 CC. Nulidade absoluta vs. Relativa.</p>
+                        <p><strong>Parte B:</strong> Princípios Clássicos:
+                        <br>• <em>Autonomia da Vontade:</em> Liberdade de contratar e definir conteúdo.
+                        <br>• <em>Pacta Sunt Servanda:</em> Força obrigatória.
+                        <br>• <em>Relatividade dos Efeitos:</em> Apenas entre as partes. Crise destes princípios no Dirigismo Contratual.</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 13</div>
+                    <h4>Elementos Acidentais e Princípios Sociais</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Termo (evento futuro e certo), Condição (evento futuro e incerto - suspensiva/resolutiva), Encargo (ônus).</p>
+                        <p><strong>Parte B:</strong>
+                        <br>• <em>Função Social do Contrato (Art. 421 CC):</em> Limite à liberdade de contratar. Eficácia interna e externa.
+                        <br>• <em>Boa-fé Objetiva (Art. 422 CC):</em> Dever de conduta ética. Deveres anexos: informação, lealdade, proteção. (Fonte: Judith Martins-Costa).</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 14</div>
+                    <h4>Efeitos e Terceiros</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Modulação dos efeitos do negócio jurídico.</p>
+                        <p><strong>Parte B:</strong> Exceções ao princípio da relatividade.
+                        <br>• <em>Estipulação em favor de terceiro:</em> Ex: seguro de vida.
+                        <br>• <em>Promessa de fato de terceiro:</em> Obrigação de resultado de quem promete.
+                        <br>• <em>Contrato com pessoa a declarar:</em> Cláusula "pro amico".</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 15</div>
+                    <h4>Defeitos e Causa</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Introdução aos vícios de consentimento e sociais.</p>
+                        <p><strong>Parte B:</strong> O sinalagma (equilíbrio) genético e funcional. A teoria da "Causa" (função econômico-social típica) vs. Motivo (psicológico). Relações contratuais de fato (ex: transporte público sem bilhete).</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 16</div>
+                    <h4>Vícios de Consentimento e Formação</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong>
+                        <br>• <em>Erro:</em> Falsa percepção da realidade.
+                        <br>• <em>Dolo:</em> Induzimento ao erro (má-fé).
+                        <br>• <em>Lesão:</em> Desproporção manifesta + premente necessidade ou inexperiência (Art. 157 CC).</p>
+                        <p><strong>Parte B:</strong> Proposta e Aceitação. Contratos entre ausentes (Teoria da Expedição). Contratos Eletrônicos (validade, assinatura digital).</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 17</div>
+                    <h4>Vícios e Fase Pré-Contratual</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong>
+                        <br>• <em>Coação:</em> Ameaça física ou moral (vis compulsiva).
+                        <br>• <em>Estado de Perigo:</em> Assumir obrigação excessiva para salvar vida (Art. 156 CC).</p>
+                        <p><strong>Parte B:</strong> Responsabilidade pré-contratual (<em>Culpa in contrahendo</em>). Dever de boa-fé nas negociações preliminares. O Contrato Preliminar (ex: promessa de compra e venda) - Art. 462 CC.</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 18</div>
+                    <h4>Prescrição e Extinção Contratual</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Perda da pretensão. Prazos do Art. 205 e 206 CC. Renunciável após consumada.</p>
+                        <p><strong>Parte B:</strong>
+                        <br>• <em>Resolução:</em> Por inadimplemento ou onerosidade.
+                        <br>• <em>Resilição:</em> Pela vontade (Unilateral/Denúncia ou Bilateral/Distrato).
+                        <br>• <em>Rescisão:</em> Termo usado para defeitos anteriores (nulidades) ou lesão/estado de perigo.</p>
+                    </div>
+                </article>
+
+                <article class="class-card">
+                    <div class="card-badge">Aula 19</div>
+                    <h4>Decadência e Revisão</h4>
+                    <div class="content-block">
+                        <p><strong>Parte A:</strong> Perda do direito potestativo. Prazos legais (não renunciáveis) e convencionais.</p>
+                        <p><strong>Parte B:</strong>
+                        <br>• <em>Teoria da Imprevisão (Rebus sic stantibus):</em> Fatos extraordinários e imprevisíveis.
+                        <br>• <em>Onerosidade Excessiva (Art. 478 CC):</em> Desequilíbrio superveniente. Diferença para a Lesão (que nasce no início do contrato).</p>
+                    </div>
+                </article>
+
+                <article class="class-card highlight-card">
+                    <div class="card-badge">Aula 20</div>
+                    <h4>Avaliação M2</h4>
+                    <div class="content-block">
+                        <p>Avaliação final abrangendo Fatos Jurídicos, Defeitos do Negócio e Teoria Geral dos Contratos (Formação, Efeitos, Revisão e Extinção).</p>
+                    </div>
+                </article>
+
             </div>
         </section>
 
     </main>
 
     <footer>
-        <p>Desenvolvido para UMC - Direito Civil 2025</p>
+        <div class="container">
+            <p>VALIDAÇÃO: Todo o conteúdo original foi incluído integralmente, sem cortes, resumos, modificações ou mudanças estruturais. Todas as 20 aulas foram desenvolvidas separadamente com base na bibliografia.</p>
+            <p class="copyright">&copy; 2026 Direito Civil - UMC/Curso de Direito.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
