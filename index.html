@@ -1,596 +1,488 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direito Civil - Cronograma Tartuce</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    
+    <title>Direito Civil - Bens, Negócios e Contratos | UMC</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* Paleta de Cores Refinada */
-            --primary: #2c3e50;      /* Azul Profundo */
-            --primary-light: #34495e;
-            --accent: #e74c3c;       /* Vermelho Vibrante */
-            --bg-body: #f4f7f6;      /* Cinza muito claro, quase branco */
-            --text-main: #2d3436;
-            --text-muted: #636e72;
+            /* Paleta Direito Civil (Sóbria e Elegante) */
+            --primary: #1a3a5e;    /* Azul Naval */
+            --secondary: #2c5282;  /* Azul Médio */
+            --accent: #c5a47e;     /* Dourado (Justiça) */
+            --text: #333333;       /* Cinza Escuro para leitura */
+            --bg: #f4f6f9;         /* Fundo claro (papel) */
+            --card-bg: #ffffff;    /* Cards brancos */
             
-            /* Cores dos Cards A e B */
-            --color-a: #2980b9; 
-            --color-a-bg: #ebf5fb;
-            --color-b: #27ae60;
-            --color-b-bg: #e9f7ef;
-
-            --sidebar-width: 300px;
-            --radius: 12px;          /* Arredondamento padrão */
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            /* Cores de Status */
+            --success: #2e7d32;    /* Verde Doutrina */
+            --warning: #d4a017;    /* Amarelo Lei */
+            --info: #1565c0;       /* Azul Jurisprudência */
+            --danger: #c62828;     /* Vermelho Atenção */
         }
 
-        * { box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
         body {
-            font-family: 'Inter', sans-serif; /* Fonte para leitura */
-            margin: 0;
-            display: flex;
-            height: 100vh;
-            background-color: var(--bg-body);
-            color: var(--text-main);
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
         }
 
-        /* --- SIDEBAR MODERNIZADA --- */
-        aside {
-            width: var(--sidebar-width);
-            background-color: var(--primary);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-            z-index: 10;
-        }
-
-        .header-logo {
-            padding: 30px 20px;
-            background: rgba(0,0,0,0.1);
+        /* --- HEADER --- */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2.5rem 1rem;
             text-align: center;
-        }
-
-        .header-logo h2 { 
-            margin: 0; 
-            font-family: 'Poppins', sans-serif; 
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        
-        .header-logo p { 
-            margin: 5px 0 0; 
-            font-size: 0.85rem; 
-            color: #bdc3c7; 
-            opacity: 0.8; 
-        }
-
-        .nav-scroll {
-            overflow-y: auto;
-            flex: 1;
-            padding: 15px;
-        }
-
-        /* Scrollbar customizada para ficar bonita */
-        .nav-scroll::-webkit-scrollbar { width: 6px; }
-        .nav-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
-
-        .nav-btn {
-            width: 100%;
-            background: transparent;
-            border: none;
-            color: #ecf0f1;
-            padding: 12px 15px;
-            text-align: left;
-            cursor: pointer;
-            margin-bottom: 5px;
-            border-radius: 8px; /* Botões arredondados */
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-btn:hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateX(5px); /* Pequeno movimento ao passar o mouse */
-        }
-
-        .nav-btn.active {
-            background-color: var(--accent);
             color: white;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4); /* Sombra colorida brilhante */
+            border-bottom: 5px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #e0e0e0;
+            font-weight: 300;
+        }
+
+        /* --- NAVEGAÇÃO (TABS) --- */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            background: var(--primary);
+            z-index: 100;
+            padding: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow-x: auto; /* Rolagem no mobile */
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: nowrap;
+            gap: 10px;
+            min-width: max-content;
+        }
+
+        .tab-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #cfd8dc;
+            padding: 12px 20px;
+            cursor: pointer;
             font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            border-radius: 4px 4px 0 0;
         }
 
-        /* --- CONTEÚDO PRINCIPAL --- */
-        main {
-            flex: 1;
-            padding: 40px;
-            overflow-y: auto;
+        .tab-btn:hover {
+            color: white;
+            background: rgba(255,255,255,0.2);
         }
 
-        .container { 
-            max-width: 1000px; 
-            margin: 0 auto; 
+        .tab-btn.active {
+            color: var(--accent);
+            background: rgba(0,0,0,0.2);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        /* --- CONTEÚDO --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 80px;
         }
 
         .content-section {
             display: none;
-            animation: fadeIn 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            animation: fadeIn 0.5s ease;
         }
+
         .content-section.active { display: block; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        h1 { 
-            color: var(--primary); 
-            font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        /* Detalhe visual abaixo do título */
-        h1::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 4px;
-            width: 60px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-        
-        /* --- DUAL COLUMN CARDS --- */
-        .dual-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .col-card {
-            background: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.03);
-            transition: transform 0.2s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .col-card:hover {
-            transform: translateY(-3px); /* Efeito de elevação */
-        }
-
-        /* Barrinha lateral colorida para diferenciar A e B */
-        .col-a { border-left: 5px solid var(--color-a); }
-        .col-b { border-left: 5px solid var(--color-b); }
-
-        .col-card h3 { 
-            margin-top: 0; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            font-family: 'Poppins', sans-serif;
+        h2 {
             color: var(--primary);
+            border-left: 5px solid var(--accent);
+            padding-left: 1rem;
+            margin: 2rem 0 1.5rem;
+            font-size: 1.8rem;
         }
 
-        /* Badges modernizados */
-        .badge { 
-            font-size: 0.8rem; 
-            padding: 4px 10px; 
-            border-radius: 20px; 
-            color: white; 
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        /* --- CARDS & GRIDS --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
-        .badge-a { background: var(--color-a); }
-        .badge-b { background: var(--color-b); }
 
-        ul { padding-left: 20px; color: var(--text-muted); }
-        li { margin-bottom: 10px; }
-        p { color: var(--text-muted); margin-bottom: 1rem; }
-        strong { color: var(--primary); font-weight: 600; }
-
-        /* --- QUIZ ESTILIZADO --- */
-        .quiz-container { 
-            background: white; 
-            padding: 40px; 
-            border-radius: var(--radius); 
-            box-shadow: var(--shadow); 
-            margin-top: 30px; 
-        }
-        
-        .question { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 25px; }
-        .question:last-child { border-bottom: none; }
-        
-        .question p { font-size: 1.1rem; color: var(--primary); margin-bottom: 15px; }
-
-        .opt-btn {
-            display: block; 
-            width: 100%; 
-            padding: 15px 20px; 
-            margin: 8px 0;
-            border: 2px solid #edf2f7; 
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
             border-radius: 8px;
-            background: #fff; 
-            text-align: left; 
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: var(--text-muted);
+            border-top: 4px solid var(--secondary); /* Top border instead of left */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .opt-btn:hover:not(:disabled) { 
-            background: #f7f9fc; 
-            border-color: #cbd5e0;
-            transform: translateX(5px);
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
 
-        .opt-btn.correct { 
-            background: #d4edda; 
-            border-color: #27ae60; 
-            color: #155724; 
-            font-weight: 600;
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            font-size: 1.2rem;
         }
-        
-        .opt-btn.wrong { 
-            background: #f8d7da; 
-            border-color: #c0392b; 
-            color: #721c24; 
-        }
-        
-        .feedback { 
-            font-weight: 600; 
-            margin-top: 10px; 
-            display: none; 
-            padding: 10px;
+
+        /* --- BOXES ESPECIAIS (LEI, DOUTRINA) --- */
+        .box {
+            padding: 15px;
             border-radius: 6px;
+            margin: 15px 0;
+            border: 1px solid transparent;
+            font-size: 0.95rem;
         }
 
-        /* Responsive */
-        @media (max-width: 850px) {
-            .dual-col { grid-template-columns: 1fr; }
-            body { flex-direction: column; }
-            aside { width: 100%; height: auto; max-height: none; padding-bottom: 20px; }
-            .nav-scroll { display: flex; overflow-x: auto; padding: 10px; gap: 10px; }
-            .nav-btn { width: auto; white-space: nowrap; margin-bottom: 0; }
-            main { padding: 20px; }
+        .box-law {
+            background-color: #fff8e1; /* Amarelo claro */
+            border-left: 4px solid var(--warning);
+            color: #5d4037;
+        }
+        .box-law strong { color: #d84315; }
+
+        .box-doctrine {
+            background-color: #e8f5e9; /* Verde claro */
+            border-left: 4px solid var(--success);
+            color: #1b5e20;
+        }
+
+        .box-attention {
+            background-color: #ffebee; /* Vermelho claro */
+            border-left: 4px solid var(--danger);
+            color: #b71c1c;
+        }
+
+        /* --- BADGES --- */
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-right: 5px;
+            text-transform: uppercase;
+            color: white;
+        }
+        .bg-art { background-color: var(--warning); color: #333; }
+        .bg-concept { background-color: var(--secondary); }
+        .bg-alert { background-color: var(--danger); }
+
+        /* --- TABELAS --- */
+        .table-responsive { overflow-x: auto; margin: 20px 0; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: var(--primary); color: white; text-transform: uppercase; font-size: 0.85rem; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 4px solid var(--accent);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
             h1 { font-size: 1.5rem; }
+            .nav-tabs { justify-content: flex-start; }
+            .grid-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<aside>
-    <div class="header-logo">
-        <h2>Direito Civil</h2>
-        <p>Cronograma Tartuce</p>
-    </div>
-    <div class="nav-scroll">
-        <button class="nav-btn active" onclick="show('aula1')">1. Personalidade & Obrigações</button>
-        <button class="nav-btn" onclick="show('aula2')">2. Incapacidade Absoluta & Solidariedade</button>
-        <button class="nav-btn" onclick="show('aula3')">3. Incapacidade Relativa & Pagamento</button>
-        <button class="nav-btn" onclick="show('aula4')">4. Dir. Personalidade & Pag. Indireto I</button>
-        <button class="nav-btn" onclick="show('aula5')">5. Domicílio & Pag. Indireto II</button>
-        <button class="nav-btn" onclick="show('aula6')">6. Pessoa Jurídica & Cessão</button>
-        <button class="nav-btn" onclick="show('aula7_8')">7/8. Bens & Responsabilidade Civil</button>
-        <button class="nav-btn" onclick="show('aula10')">10. Fatos Jurídicos & Contratos</button>
-        <button class="nav-btn" onclick="show('aula11_12')">11/12. Validade & Classificação</button>
-        <button class="nav-btn" onclick="show('aula13_14')">13/14. Princípios Sociais</button>
-        <button class="nav-btn" onclick="show('aula15_17')">15-17. Defeitos & Formação</button>
-        <button class="nav-btn" onclick="show('aula18_19')">18/19. Prescrição & Extinção</button>
-        <button class="nav-btn" onclick="show('quiz')">🎓 Quiz Final</button>
-    </div>
-</aside>
+    <header>
+        <h1><i class="fas fa-balance-scale"></i> Bens, Negócios e Contratos</h1>
+        <p class="subtitle">Material Completo - Aulas 1 a 20 | Direito UMC 2025</p>
+    </header>
 
-<main>
+    <div class="nav-container">
+        <ul class="nav-tabs">
+            <li><button class="tab-btn active" onclick="handleTabClick('modulo1')">1. Sujeitos e Bens</button></li>
+            <li><button class="tab-btn" onclick="handleTabClick('modulo2')">2. Obrigações</button></li>
+            <li><button class="tab-btn" onclick="handleTabClick('modulo3')">3. Teoria dos Contratos</button></li>
+            <li><button class="tab-btn" onclick="handleTabClick('modulo4')">4. Crise e Extinção</button></li>
+            <li><button class="tab-btn" onclick="handleTabClick('avaliacoes')">Avaliações</button></li>
+        </ul>
+    </div>
+
     <div class="container">
-        
-        <div id="aula1" class="content-section active">
-            <h1>Tópico 1</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Pessoa Natural</h3>
-                    <p><strong>Personalidade:</strong> Aptidão genérica para adquirir direitos e contrair deveres. Inicia-se com o nascimento com vida.</p>
-                    <p><strong>Capacidade:</strong> Medida da personalidade.</p>
+
+        <section id="modulo1" class="content-section active">
+            <h2><i class="fas fa-user-friends"></i> Pessoa Natural, Jurídica e Bens</h2>
+            <p>Cobertura: Aulas 1 a 8 (Parte A)</p>
+
+            <div class="grid-container">
+                <div class="card">
+                    <h3><span class="badge bg-concept">Aula 1</span> Personalidade e Capacidade</h3>
+                    <p><strong>Personalidade:</strong> Aptidão para contrair direitos e obrigações. Inicia no nascimento com vida.</p>
+                    <div class="box-law">
+                        <span class="badge bg-art">Art. 2º CC</span> "A personalidade civil da pessoa começa do nascimento com vida; mas a lei põe a salvo, desde a concepção, os direitos do nascituro."
+                    </div>
+                    <p><strong>Teorias:</strong> Natalista (Majoritária) vs. Concepcionista (Moderna/Tartuce).</p>
+                </div>
+
+                <div class="card">
+                    <h3><span class="badge bg-concept">Aula 2/3</span> Incapacidade</h3>
+                    <p>Alterada drasticamente pelo Estatuto da Pessoa com Deficiência (Lei 13.146/15).</p>
                     <ul>
-                        <li><em>De Direito:</em> Todos têm.</li>
-                        <li><em>De Fato:</em> Aptidão para exercer pessoalmente os atos (alguns não têm).</li>
+                        <li><strong>Absolutamente Incapazes (Art. 3º):</strong> Apenas os menores de 16 anos. O deficiente mental NÃO é mais considerado absolutamente incapaz automaticamente.</li>
+                        <li><strong>Relativamente Incapazes (Art. 4º):</strong> 16 a 18 anos, ébrios habituais, viciados em tóxicos, pródigos.</li>
                     </ul>
                 </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Obrigações (Modalidades)</h3>
-                    <p><strong>Obrigação de Dar:</strong>
-                        <ul>
-                            <li><em>Coisa Certa:</em> Objeto determinado (art. 313 CC). Credor não é obrigado a receber outra coisa.</li>
-                            <li><em>Coisa Incerta:</em> Indicada pelo gênero e quantidade.</li>
-                        </ul>
-                    </p>
-                    <p><strong>Fazer:</strong> Atividade humana (fungível ou infungível).</p>
-                    <p><strong>Não Fazer:</strong> Abstenção (única obrigação negativa).</p>
+
+                <div class="card">
+                    <h3><span class="badge bg-concept">Aula 6</span> Pessoa Jurídica</h3>
+                    <p>Entes morais com personalidade própria distinta dos sócios.</p>
+                    <div class="box-attention">
+                        <strong>Desconsideração da Personalidade (Art. 50):</strong> Permite atingir bens dos sócios em caso de <em>Abuso da Personalidade</em> (Desvio de finalidade ou Confusão patrimonial).
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><span class="badge bg-concept">Aula 7/8</span> Classificação dos Bens</h3>
+                    <div class="table-responsive">
+                        <table>
+                            <tr><th>Tipo</th><th>Conceito</th></tr>
+                            <tr><td><strong>Imóveis</strong></td><td>Solo e tudo que lhe incorporar (natural ou artificial).</td></tr>
+                            <tr><td><strong>Móveis</strong></td><td>Suscetíveis de movimento próprio ou remoção por força alheia.</td></tr>
+                            <tr><td><strong>Fungíveis</strong></td><td>Substituíveis por outro de mesma espécie, qualidade e quantidade (dinheiro).</td></tr>
+                            <tr><td><strong>Públicos</strong></td><td>Uso comum (praça), Uso especial (escola), Dominicais (sem afetação).</td></tr>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="aula2" class="content-section">
-            <h1>Tópico 2</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Incapacidade Absoluta</h3>
-                    <p>Após o Estatuto da Pessoa com Deficiência (Lei 13.146/2015), apenas os <strong>menores de 16 anos</strong> são absolutamente incapazes. Devem ser <em>representados</em>.</p>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Classificações Obrigacionais</h3>
-                    <p><strong>Alternativas:</strong> O devedor se libera cumprindo uma das prestações (escolha do devedor, em regra).</p>
-                    <p><strong>Solidárias:</strong>
-                        <ul>
-                            <li>Não se presume, resulta da lei ou vontade.</li>
-                            <li><em>Ativa:</em> Vários credores, qualquer um pode cobrar tudo.</li>
-                            <li><em>Passiva:</em> Vários devedores, credor pode cobrar tudo de um só.</li>
-                        </ul>
-                    </p>
-                </div>
+
+        <section id="modulo2" class="content-section">
+            <h2><i class="fas fa-handshake"></i> Teoria Geral das Obrigações</h2>
+            <p>Cobertura: Aulas 1 a 6 (Parte B)</p>
+
+            <div class="box box-doctrine">
+                <strong>Conceito:</strong> Vínculo jurídico transitório onde o Devedor (sujeito passivo) deve realizar uma prestação (Dar, Fazer, Não Fazer) em favor do Credor (sujeito ativo), sob pena de execução patrimonial.
             </div>
-        </div>
 
-        <div id="aula3" class="content-section">
-            <h1>Tópico 3</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Incapacidade Relativa</h3>
-                    <p>Art. 4º do CC (maiores de 16 e menores de 18, ébrios habituais, viciados em tóxicos, pródigos). Devem ser <em>assistidos</em>.</p>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Teoria do Pagamento</h3>
-                    <p><strong>Pagamento em Consignação (Art. 335):</strong> Depósito judicial ou em estabelecimento bancário da coisa devida. Ocorre quando o credor recusa receber ou é desconhecido.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="aula4" class="content-section">
-            <h1>Tópico 4</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Direitos da Personalidade</h3>
-                    <p>Intransmissíveis, irrenunciáveis e extrapatrimoniais. Rol exemplificativo (corpo, nome, imagem, honra). Tartuce destaca a proteção <em>post mortem</em>.</p>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Pagamento Indireto (I)</h3>
+            <div class="grid-container">
+                <div class="card">
+                    <h3><i class="fas fa-box-open"></i> Modalidades (Aula 1/2)</h3>
                     <ul>
-                        <li><strong>Sub-rogação:</strong> Substituição do credor (ex: fiador que paga a dívida assume o lugar do credor).</li>
-                        <li><strong>Imputação:</strong> Pessoa tem várias dívidas com o mesmo credor e paga apenas uma parte; precisa definir qual está pagando.</li>
-                        <li><strong>Dação:</strong> Credor consente em receber prestação diversa da que lhe é devida.</li>
+                        <li><strong>Dar Coisa Certa:</strong> Objeto individualizado (O quadro 'X'). O credor não é obrigado a receber outro, ainda que mais valioso.</li>
+                        <li><strong>Fazer:</strong> Prestação de serviço ou atividade (Pintar um muro). Pode ser <em>fungível</em> (qualquer um faz) ou <em>infungível</em> (personalíssima).</li>
+                        <li><strong>Solidariedade (Art. 264):</strong> Não se presume, resulta da lei ou da vontade. Qualquer devedor responde pela dívida toda.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-money-bill-wave"></i> Pagamento (Aula 3/4)</h3>
+                    <p>É o cumprimento da obrigação. Formas especiais:</p>
+                    <div class="box-law">
+                        <p><strong>Consignação:</strong> Depósito judicial quando o credor recusa receber.</p>
+                        <p><strong>Sub-rogação:</strong> Substituição do credor (fiador que paga a dívida).</p>
+                        <p><strong>Dação:</strong> Credor aceita receber prestação diversa da devida.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-random"></i> Transmissão (Aula 6)</h3>
+                    <p><strong>Cessão de Crédito:</strong> Credor transfere seu direito a outro. Não precisa consentimento do devedor (apenas notificação).</p>
+                    <p><strong>Assunção de Dívida:</strong> Novo devedor assume o lugar do antigo. <span class="badge bg-alert">EXIGE</span> consentimento expresso do credor.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="modulo3" class="content-section">
+            <h2><i class="fas fa-file-contract"></i> Teoria Geral dos Contratos</h2>
+            <p>Cobertura: Aulas 10 a 14</p>
+
+            <div class="box box-law">
+                <h3>Princípios Modernos (Lei da Liberdade Econômica)</h3>
+                <p><span class="badge bg-art">Art. 421 CC</span> "A liberdade contratual será exercida nos limites da função social do contrato."</p>
+                <p><span class="badge bg-art">Art. 422 CC</span> "Os contratantes são obrigados a guardar, assim na conclusão do contrato, como em sua execução, os princípios de probidade e boa-fé."</p>
+            </div>
+
+            <div class="grid-container">
+                <div class="card">
+                    <h3><span class="badge bg-concept">Aula 10</span> Escada Ponteana</h3>
+                    <p>Para o negócio jurídico existir, valer e ter eficácia:</p>
+                    <ol>
+                        <li><strong>Plano da Existência:</strong> Agente, Vontade, Objeto, Forma.</li>
+                        <li><strong>Plano da Validade (Art. 104):</strong> Agente <em>capaz</em>, Objeto <em>lícito/possível</em>, Forma <em>prescrita em lei</em>.</li>
+                        <li><strong>Plano da Eficácia:</strong> Condição, Termo, Encargo.</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3><span class="badge bg-concept">Aula 11</span> Classificação</h3>
+                    <ul>
+                        <li><strong>Unilaterais vs Bilaterais:</strong> Obrigações para um ou ambos.</li>
+                        <li><strong>Onerosos vs Gratuitos:</strong> Há sacrifício patrimonial ou mera liberalidade.</li>
+                        <li><strong>Comutativos vs Aleatórios:</strong> Prestações certas vs risco (ex: seguro, aposta).</li>
+                        <li><strong>Adesão:</strong> Cláusulas pré-estipuladas (sem discussão).</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><span class="badge bg-concept">Aula 13/14</span> Elementos Acidentais</h3>
+                    <p>Modulam os efeitos do negócio:</p>
+                    <ul>
+                        <li><strong>Termo:</strong> Evento futuro e <em>certo</em> (Data).</li>
+                        <li><strong>Condição:</strong> Evento futuro e <em>incerto</em> ("Se chover...").</li>
+                        <li><strong>Encargo:</strong> Ônus imposto em liberalidades ("Doo o terreno, <em>desde que</em> construa uma creche").</li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="aula5" class="content-section">
-            <h1>Tópico 5</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Domicílio e Fim da Personalidade</h3>
-                    <p><strong>Morte Real:</strong> Extingue a personalidade.</p>
-                    <p><strong>Ausência:</strong> Processo gradual para proteger bens de quem sumiu.</p>
-                    <p><strong>Morte Presumida:</strong> Com ou sem decretação de ausência.</p>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Pagamento Indireto (II)</h3>
+
+        <section id="modulo4" class="content-section">
+            <h2><i class="fas fa-heart-broken"></i> Defeitos e Extinção dos Contratos</h2>
+            <p>Cobertura: Aulas 15 a 19</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vício (Defeito)</th>
+                            <th>Conceito (Aulas 15-17)</th>
+                            <th>Consequência</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Erro</strong></td><td>Falsa percepção da realidade (engana-se sozinho).</td><td>Anulável</td></tr>
+                        <tr><td><strong>Dolo</strong></td><td>Indução ao erro (ardil, armadilha).</td><td>Anulável</td></tr>
+                        <tr><td><strong>Coação</strong></td><td>Ameaça física ou moral que incute temor de dano.</td><td>Anulável</td></tr>
+                        <tr><td><strong>Lesão</strong></td><td>Necessidade premente ou inexperiência gera desproporção.</td><td>Anulável</td></tr>
+                        <tr><td><strong>Simulação</strong></td><td>Mentira compartilhada para enganar terceiros/lei.</td><td><span class="badge bg-alert">NULO</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid-container">
+                <div class="card">
+                    <h3><span class="badge bg-concept">Aula 18</span> Extinção Contratual</h3>
+                    <p>Como o contrato acaba antes do tempo?</p>
                     <ul>
-                        <li><strong>Novação:</strong> Criação de nova obrigação para extinguir a anterior (ânimo de novar).</li>
-                        <li><strong>Compensação:</strong> Duas pessoas são credora e devedora uma da outra (até o montante equivalente).</li>
-                        <li><strong>Confusão:</strong> Credor e devedor se tornam a mesma pessoa.</li>
+                        <li><strong>Resilição:</strong> Pela vontade. Pode ser Bilateral (Distrato) ou Unilateral (Denúncia).</li>
+                        <li><strong>Resolução:</strong> Por inadimplemento (descumprimento) ou onerosidade excessiva.</li>
+                        <li><strong>Rescisão:</strong> Termo usado genericamente, mas tecnicamente para casos de nulidade/lesão.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><span class="badge bg-concept">Aula 19</span> Teoria da Imprevisão</h3>
+                    <div class="box-law">
+                        <span class="badge bg-art">Art. 478 CC</span> "Nos contratos de execução continuada ou diferida, se a prestação de uma das partes se tornar excessivamente onerosa, com extrema vantagem para a outra, em virtude de acontecimentos extraordinários e imprevisíveis..."
+                    </div>
+                    <p><strong>Requisitos:</strong> Fato superveniente + Imprevisibilidade + Onerosidade Excessiva.</p>
+                </div>
+
+                <div class="card">
+                    <h3><span class="badge bg-concept">Prescrição x Decadência</span></h3>
+                    <ul>
+                        <li><strong>Prescrição:</strong> Perda da <em>pretensão</em> (capacidade de processar). Prazos nos Arts. 205/206. Renunciável.</li>
+                        <li><strong>Decadência:</strong> Perda do próprio <em>direito</em> potestativo. Prazos espalhados no código. Irrenunciável (se legal).</li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="aula6" class="content-section">
-            <h1>Tópico 6</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Pessoa Jurídica</h3>
-                    <p><strong>Desconsideração (Art. 50):</strong> Permite atingir bens dos sócios em caso de abuso (desvio de finalidade ou confusão patrimonial). O CC adota a <em>Teoria Maior</em>.</p>
+        <section id="avaliacoes" class="content-section">
+            <h2><i class="fas fa-edit"></i> Calendário de Avaliações</h2>
+            <div class="grid-container">
+                <div class="card" style="border-top-color: var(--primary);">
+                    <h3>Avaliação M1</h3>
+                    <p>Referente às Aulas 1 a 8.</p>
+                    <p><strong>Foco:</strong> Capacidade, Modalidades de Obrigações e Classificação de Bens.</p>
                 </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Transmissão e Inadimplemento</h3>
-                    <p><strong>Cessão de Crédito:</strong> Credor transfere seu direito a outro (necessária notificação do devedor).</p>
-                    <p><strong>Assunção de Dívida:</strong> Novo devedor assume (necessária anuência expressa do credor).</p>
-                    <p><strong>Remissão:</strong> Perdão da dívida.</p>
+                <div class="card" style="border-top-color: var(--accent);">
+                    <h3>Avaliação M2</h3>
+                    <p>Conteúdo Cumulativo (Aulas 1 a 19).</p>
+                    <p><strong>Foco:</strong> Defeitos do Negócio Jurídico, Função Social do Contrato e Extinção.</p>
                 </div>
             </div>
-        </div>
-
-        <div id="aula7_8" class="content-section">
-            <h1>Tópicos 7 e 8</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Bens</h3>
-                    <ul>
-                        <li><strong>Considerados em si mesmos:</strong> Imóveis/Móveis, Fungíveis/Infungíveis.</li>
-                        <li><strong>Reciprocamente considerados:</strong> Principal e Acessório (frutos, produtos, benfeitorias).</li>
-                        <li><strong>Bens Públicos:</strong> Uso comum, especial e dominicais (apenas dominicais podem ser alienados, mas nenhum sofre usucapião).</li>
-                    </ul>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Responsabilidade Civil (1.10)</h3>
-                    <p><strong>Regra:</strong> Subjetiva (depende de culpa).</p>
-                    <p><strong>Exceção (Art. 927, p.ú.):</strong> Objetiva (independentemente de culpa) em casos de lei ou atividade de risco.</p>
-                    <p><strong>Pressupostos:</strong> Conduta, Nexo, Dano.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="aula10" class="content-section">
-            <h1>Tópico 10</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Fatos e Atos Jurídicos</h3>
-                    <p>O fato jurídico em sentido amplo abrange eventos naturais e ações humanas (atos lícitos e ilícitos). O negócio jurídico exige vontade qualificada visando fim específico.</p>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Teoria Geral dos Contratos</h3>
-                    <p>Conceito: Negócio jurídico bilateral ou plurilateral visando criar, modificar ou extinguir direitos patrimoniais.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="aula11_12" class="content-section">
-            <h1>Tópicos 11 e 12</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Escada Ponteana</h3>
-                    <p><strong>Existência:</strong> Partes, vontade, objeto, forma.</p>
-                    <p><strong>Validade:</strong> Agente capaz, objeto lícito/possível/determinado, forma prescrita ou não defesa.</p>
-                    <p><strong>Eficácia:</strong> Termo, Condição, Encargo.</p>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Classificação e Liberdade</h3>
-                    <p><strong>Contratos de Adesão:</strong> Cláusulas estipuladas unilateralmente. Interpretação favorável ao aderente.</p>
-                    <p><strong>Autonomia Privada:</strong> Não é absoluta. Sofre limitação pelo Dirigismo Contratual (normas de ordem pública).</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="aula13_14" class="content-section">
-            <h1>Tópicos 13 e 14</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Elementos Acidentais</h3>
-                    <p><strong>Condição:</strong> Evento futuro e incerto (se...).</p>
-                    <p><strong>Termo:</strong> Evento futuro e certo (quando...).</p>
-                    <p><strong>Encargo:</strong> Ônus imposto ao beneficiário.</p>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Princípios Sociais</h3>
-                    <p><strong>Função Social (Art. 421):</strong> O contrato deve respeitar interesses da coletividade.</p>
-                    <p><strong>Boa-fé Objetiva (Art. 422):</strong> Dever de conduta ética (lealdade, informação). Gera deveres anexos.</p>
-                    <p><strong>Efeitos a terceiros:</strong> Ex: Estipulação em favor de terceiro (seguro de vida).</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="aula15_17" class="content-section">
-            <h1>Tópicos 15, 16 e 17</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Defeitos do Negócio</h3>
-                    <p><strong>Vícios de Consentimento:</strong> Erro (falsa percepção), Dolo (engano provocado), Coação (ameaça), Estado de Perigo (salvar vida), Lesão (necessidade/inexperiência + onerosidade).</p>
-                    <p><strong>Vício Social:</strong> Fraude contra credores (gera anulação, não ineficácia, segundo Tartuce/CC).</p>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Formação e Negociações</h3>
-                    <p><strong>Negociações Preliminares:</strong> Não vinculam, mas geram resp. civil se houver quebra da boa-fé.</p>
-                    <p><strong>Contrato Preliminar:</strong> Gera obrigação de celebrar o definitivo.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="aula18_19" class="content-section">
-            <h1>Tópicos 18 e 19</h1>
-            <div class="dual-col">
-                <div class="col-card col-a">
-                    <h3><span class="badge badge-a">A</span> Prescrição e Decadência</h3>
-                    <p><strong>Prescrição:</strong> Perda da pretensão (ação). Prazos nos arts. 205/206.</p>
-                    <p><strong>Decadência:</strong> Perda do próprio direito potestativo.</p>
-                </div>
-                <div class="col-card col-b">
-                    <h3><span class="badge badge-b">B</span> Extinção e Revisão</h3>
-                    <p><strong>Resolução:</strong> Por inadimplemento.</p>
-                    <p><strong>Resilição:</strong> Pela vontade (distrato ou denúncia).</p>
-                    <p><strong>Teoria da Imprevisão (Art. 478):</strong> Fato superveniente, extraordinário e imprevisível que gera onerosidade excessiva.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="quiz" class="content-section">
-            <h1>Quiz Final (Baseado no Conteúdo)</h1>
-            <div class="quiz-container">
-                
-                <div class="question">
-                    <p><strong>1. (Ref. Tópico 2A) Sobre a capacidade civil após o Estatuto da Pessoa com Deficiência, é correto afirmar:</strong></p>
-                    <button class="opt-btn" onclick="check(this, false, 'Errado. Eles são relativamente incapazes.')">A) Menores de 18 anos são absolutamente incapazes.</button>
-                    <button class="opt-btn" onclick="check(this, true, 'Correto! Apenas os menores de 16 são absolutamente incapazes (Art. 3º CC).')">B) Apenas os menores de 16 anos são absolutamente incapazes.</button>
-                    <button class="opt-btn" onclick="check(this, false, 'Errado. Deficiência não gera incapacidade automática.')">C) Pessoas com deficiência mental são absolutamente incapazes.</button>
-                    <div class="feedback"></div>
-                </div>
-
-                <div class="question">
-                    <p><strong>2. (Ref. Tópico 5B) Quando duas pessoas são, ao mesmo tempo, credora e devedora uma da outra, extingue-se a obrigação por:</strong></p>
-                    <button class="opt-btn" onclick="check(this, false, 'Errado. Confusão é quando credor e devedor são a MESMA pessoa.')">A) Confusão</button>
-                    <button class="opt-btn" onclick="check(this, false, 'Errado. Novação cria nova dívida.')">B) Novação</button>
-                    <button class="opt-btn" onclick="check(this, true, 'Correto! Trata-se da Compensação (Art. 368 CC).')">C) Compensação</button>
-                    <div class="feedback"></div>
-                </div>
-
-                <div class="question">
-                    <p><strong>3. (Ref. Tópico 19B) Para a aplicação da Teoria da Imprevisão (Revisão Contratual - Art. 478 CC), exige-se:</strong></p>
-                    <button class="opt-btn" onclick="check(this, true, 'Correto! Exige-se fato extraordinário e imprevisível.')">A) Acontecimento extraordinário e imprevisível + Onerosidade excessiva.</button>
-                    <button class="opt-btn" onclick="check(this, false, 'Errado. A simples onerosidade não basta no Código Civil.')">B) Apenas onerosidade excessiva, mesmo que previsível.</button>
-                    <div class="feedback"></div>
-                </div>
-
-            </div>
-        </div>
+        </section>
 
     </div>
-</main>
 
-<script>
-    function show(id) {
-        // Esconde tudo
-        document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
-        
-        // Mostra o alvo
-        document.getElementById(id).classList.add('active');
-        
-        // Ativa botão
-        const btn = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.getAttribute('onclick').includes(id));
-        if(btn) btn.classList.add('active');
-        
-        // Scroll suave para o topo do conteúdo em mobile
-        if(window.innerWidth <= 850) {
-            window.scrollTo({ top: document.querySelector('main').offsetTop, behavior: 'smooth' });
+    <footer>
+        <p>Desenvolvido para UMC - Direito Civil 2º Semestre/2025</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Baseado nas obras de Tartuce, Gonçalves e Gagliano.</p>
+    </footer>
+
+    <script>
+        function handleTabClick(sectionId) {
+            // Remove 'active' de todas as seções
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Adiciona 'active' na seção alvo
+            const target = document.getElementById(sectionId);
+            if(target) target.classList.add('active');
+            
+            // Atualiza os botões do menu
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                // Verifica se o onclick do botão contém o ID da seção
+                if(btn.getAttribute('onclick').includes(sectionId)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Scroll suave para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    }
-
-    function check(btn, isCorrect, msg) {
-        const parent = btn.parentElement;
-        const feedback = parent.querySelector('.feedback');
-        
-        // Bloqueia cliques
-        parent.querySelectorAll('.opt-btn').forEach(b => {
-            b.disabled = true;
-            if(b === btn) {
-                b.classList.add(isCorrect ? 'correct' : 'wrong');
-            }
-        });
-
-        feedback.style.display = 'block';
-        feedback.innerText = msg;
-        // Cor ajustada para o tema mais escuro da fonte de feedback
-        feedback.style.backgroundColor = isCorrect ? '#e8f5e9' : '#ffebee';
-        feedback.style.color = isCorrect ? '#2e7d32' : '#c62828';
-    }
-</script>
-
+    </script>
 </body>
 </html>
