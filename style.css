@@ -43,11 +43,17 @@ html {
 
 body {
     background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
-    background-attachment: fixed;
+    background-attachment: scroll;
     color: var(--text-main);
     font-family: var(--font-primary);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+    body {
+        background-attachment: fixed;
+    }
 }
 
 a { 
@@ -65,6 +71,8 @@ ul {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .gradient-text {
@@ -676,6 +684,11 @@ footer p {
     .grid-layout {
         grid-template-columns: 1fr;
     }
+    
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
@@ -707,6 +720,11 @@ footer p {
     body {
         background: white;
         color: black;
+        overflow-x: hidden;
+    }
+    
+    html {
+        width: 100%;
     }
     
     #main-header {
