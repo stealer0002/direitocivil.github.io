@@ -30,6 +30,18 @@
     }
 }
 
+/* Mobile scroll optimization */
+@media (max-width: 767px) {
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Disable smooth-scroll on mobile for immediate response */
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -39,6 +51,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px; /* Previne zoom em inputs no mobile */
+    -webkit-overflow-scrolling: touch; /* Momentum scrolling em iOS */
 }
 
 body {
@@ -48,6 +61,8 @@ body {
     font-family: var(--font-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight no mobile */
+    -webkit-touch-callout: none; /* Disable iOS callout */
 }
 
 @media (min-width: 1024px) {
@@ -687,6 +702,16 @@ footer p {
     
     html, body {
         width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Mobile scroll optimization */
+    main {
+        overflow-x: hidden;
+    }
+    
+    /* Prevent horizontal scroll from overflow content */
+    .container {
         overflow-x: hidden;
     }
 }
