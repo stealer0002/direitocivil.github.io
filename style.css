@@ -52,9 +52,11 @@ html {
     scroll-behavior: smooth;
     font-size: 16px; /* Previne zoom em inputs no mobile */
     -webkit-overflow-scrolling: touch; /* Momentum scrolling em iOS */
+    background-color: #050810; /* Fallback background color */
 }
 
 body {
+    background-color: #050810; /* Fallback color to prevent white flashes */
     background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
     background-attachment: scroll;
     color: var(--text-main);
@@ -63,6 +65,7 @@ body {
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent; /* Remove tap highlight no mobile */
     -webkit-touch-callout: none; /* Disable iOS callout */
+    will-change: background; /* Optimize background rendering */
 }
 
 @media (min-width: 1024px) {
