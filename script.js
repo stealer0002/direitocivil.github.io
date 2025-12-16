@@ -29,6 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { once: true });
     }
 
+    // Lógica para expandir/colapsar os cards das aulas
+    const classCards = document.querySelectorAll('.class-card');
+    classCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Não fecha o card se clicar nos detalhes internos
+            if (e.target.closest('details')) return;
+            card.classList.toggle('expanded');
+        });
+    });
+
     // Smooth Scroll para links de âncora com tratamento de erro
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
