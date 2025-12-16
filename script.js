@@ -113,10 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addDidaticoPreviews();
 
+    let modalPushed = false;
+
     // 3. Função para fechar o modal
-    const closeModal = () => {
+    const closeModal = (fromHistory = false) => {
         modal.classList.remove('active');
         document.body.style.overflow = ''; // Reativa o scroll da página
+        if (modalPushed && !fromHistory) {
+            window.history.back();
+        }
+        modalPushed = false;
     };
 
     closeModalBtn.addEventListener('click', closeModal);
@@ -125,6 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+
+    // Fecha o modal ao usar o botão voltar do mobile (popstate)
+    window.addEventListener('popstate', () => {
+        if (modal.classList.contains('active')) {
+            closeModal(true);
+        }
     });
 
     // 4. Lógica de clique nos cards
@@ -139,6 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Trava o scroll da página de fundo
+            if (!modalPushed && window.history && window.history.pushState) {
+                window.history.pushState({ modalOpen: true }, '');
+                modalPushed = true;
+            }
         });
     });
 

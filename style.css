@@ -318,6 +318,8 @@ nav a:hover {
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {
@@ -362,6 +364,25 @@ nav a:hover {
     background: rgba(0, 240, 255, 0.15);
     box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
     transform: translateY(-2px);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+    transition: width 0.35s ease, height 0.35s ease, opacity 0.35s ease;
+    opacity: 0;
+}
+
+.btn:active::after {
+    width: 220%;
+    height: 220%;
+    opacity: 1;
 }
 
 .hero-bg-glow {
@@ -551,6 +572,7 @@ nav a:hover {
     height: 100%;
     box-shadow: 0 18px 50px rgba(0,0,0,0.3);
     overflow: hidden;
+    transform: translateZ(0);
 }
 
 .card::before {
@@ -609,6 +631,20 @@ nav a:hover {
     border-bottom-left-radius: 10px;
     box-shadow: 0 4px 15px rgba(185, 75, 248, 0.3);
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.card-badge::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.card:hover .card-badge::after {
+    opacity: 1;
 }
 
 .card h3, .card h4 {
@@ -846,6 +882,18 @@ footer p {
     justify-content: flex-end;
     gap: 8px;
     transition: var(--transition-default);
+    position: relative;
+}
+
+.read-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+    transition: width 0.25s ease;
 }
 
 .read-btn::after {
@@ -861,6 +909,10 @@ footer p {
 
 .card:hover .read-btn::after {
     transform: translateX(5px);
+}
+
+.card:hover .read-btn::before {
+    width: 60px;
 }
 
 /* --- ESTILOS DO MODAL --- */
